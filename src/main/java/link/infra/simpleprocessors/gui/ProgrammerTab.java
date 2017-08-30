@@ -1,5 +1,6 @@
 package link.infra.simpleprocessors.gui;
 
+import link.infra.simpleprocessors.SimpleProcessors;
 import net.minecraft.util.ResourceLocation;
 
 public class ProgrammerTab {
@@ -7,17 +8,20 @@ public class ProgrammerTab {
 	private int xSize;
 	private int ySize;
 	private ResourceLocation background;
+	private String name;
 	
-	public ProgrammerTab(ResourceLocation background) {
+	public ProgrammerTab(ResourceLocation background, String name) {
 		this.background = background;
 		this.xSize = 176;
 		this.ySize = 194;
+		this.name = name;
 	}
 	
-	public ProgrammerTab(ResourceLocation background, int xSize, int ySize) {
+	public ProgrammerTab(ResourceLocation background, String name, int xSize, int ySize) {
 		this.background = background;
 		this.xSize = xSize;
 		this.ySize = ySize;
+		this.name = name;
 	}
 	
 	public ResourceLocation getBackgroundResource() {
@@ -30,6 +34,19 @@ public class ProgrammerTab {
 	
 	public int getYSize() {
 		return ySize;
+	}
+	
+	public int checkTabClicked(int mouseX, int mouseY) {
+		if (mouseY < 30) {
+			if (mouseX < 86) {
+				return mouseX / 29;
+			}
+		}
+		return -1;
+	}
+	
+	public String getUnlocalizedName() {
+		return "tooltip." + SimpleProcessors.MODID + ".programmer.tab." + name + ".name";
 	}
 
 }

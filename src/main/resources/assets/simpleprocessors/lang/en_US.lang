@@ -1,3 +1,5 @@
 itemGroup.simpleprocessors=Simple Processors
 tile.simpleprocessors.programmer.name=Programmer
 tooltip.simpleprocessors.block.programmer.name=Refines coffee into code.
+tooltip.simpleprocessors.block.programmer.tab.insert.name=Insert processor
+tooltip.simpleprocessors.block.programmer.tab.modules.name=Setup modules

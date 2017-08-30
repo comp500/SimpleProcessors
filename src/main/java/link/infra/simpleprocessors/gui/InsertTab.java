@@ -8,7 +8,7 @@ public class InsertTab extends ProgrammerTab {
 	private static final ResourceLocation background = new ResourceLocation(SimpleProcessors.MODID, "textures/gui/inserttab.png");
 	
 	public InsertTab() {
-		super(background);
+		super(background, "insert");
 	}
 	
 }
