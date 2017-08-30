@@ -25,21 +25,17 @@ public class SandboxRunner {
 	}
 
 	/*
-		var module = {exports: {}};
-		var exports = module.exports;
+		var exports = {};
 		var require = (function(require_native) {
 			return function(str) {
 				var req = require_native.getnative(str);
 				if (req == null) {
 					var codeString = require_native.get(str);
 					if (codeString) {
-						var oldModule = module;
 						var oldExports = exports;
-						module = {exports: {}};
-						exports = module.exports;
+						exports = {};
 						eval(codeString);
-						var fin = module.exports;
-						module = oldModule;
+						var fin = exports;
 						exports = oldExports;
 						return fin;
 					} else {
@@ -55,7 +51,7 @@ public class SandboxRunner {
 
 	public void injectRequireFix() {
 		// load require override with eval() to allow module loading
-		sandbox.eval("var module={exports:{}},exports=module.exports,require=function(d){return function(a){var b=d.getnative(a);if(null==b){var c=d.get(a);return c?(a=module,b=exports,module={exports:{}},exports=module.exports,eval(c),c=module.exports,module=a,exports=b,c):null}return b}}(require_native);delete require_native;");
+		sandbox.eval("var exports={},require=function(c){return function(b){var a=c.getnative(b);return null==a?(a=c.get(b))?(b=exports,exports={},eval(a),a=exports,exports=b,a):null:a}}(require_native);delete require_native;");
 	}
 	
 	public Object evalCode(String code) {
