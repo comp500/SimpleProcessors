@@ -1,0 +1,8 @@
+[{
+  "modid": "simpleprocessors",
+  "name": "Simple Processors",
+  "description": "Automate everything with JavaScript!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "authorList": ["comp500"]
+}]
