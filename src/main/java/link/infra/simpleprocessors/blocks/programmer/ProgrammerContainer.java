@@ -3,6 +3,7 @@ package link.infra.simpleprocessors.blocks.programmer;
 import javax.annotation.Nullable;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -88,6 +89,16 @@ public class ProgrammerContainer extends Container {
 			processorSlot.xPos = 146;
 		} else {
 			processorSlot.xPos = -999; // make slot invisible
+		}
+	}
+	
+	@Override
+	public void onContainerClosed(EntityPlayer playerIn) {
+		super.onContainerClosed(playerIn);
+		if (!playerIn.isEntityAlive() || playerIn instanceof EntityPlayerMP && ((EntityPlayerMP)playerIn).hasDisconnected()) {
+			playerIn.dropItem(inputStackHandler.extractItem(0, 64, false), false);
+		} else {
+			playerIn.inventory.placeItemBackInInventory(playerIn.getEntityWorld(), inputStackHandler.extractItem(0, 64, false));
 		}
 	}
 
