@@ -12,11 +12,11 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = SimpleProcessors.MODID, name = SimpleProcessors.MODNAME, version = SimpleProcessors.VERSION, useMetadata = true)
 public class SimpleProcessors {
 
-	public static final String MODID = "ecmacraft";
-    public static final String MODNAME = "ECMAcraft";
+	public static final String MODID = "simpleprocessors";
+    public static final String MODNAME = "Simple Processors";
     public static final String VERSION = "1.0.0.0";
     
-    @SidedProxy(clientSide = "link.infra.ecmacraft.proxy.ClientProxy", serverSide = "link.infra.ecmacraft.proxy.CommonProxy")
+    @SidedProxy(clientSide = "link.infra.simpleprocessors.proxy.ClientProxy", serverSide = "link.infra.simpleprocessors.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.Instance
