@@ -9,7 +9,7 @@ import net.minecraft.client.resources.I18n;
 
 public class ProgrammerGui extends GuiContainer {
 
-	private int currentTab = 0;
+	private int currentTab;
 	private ArrayList<ProgrammerTab> tabs;
 	protected ProgrammerContainer container;
 
@@ -21,6 +21,12 @@ public class ProgrammerGui extends GuiContainer {
 		tabs = new ArrayList<ProgrammerTab>();
 		tabs.add(new InsertTab());
 		tabs.add(new ModulesTab());
+	}
+	
+	@Override
+	public void initGui() {
+		switchTab(0, false);
+		super.initGui();
 	}
 
 	@Override
@@ -50,17 +56,26 @@ public class ProgrammerGui extends GuiContainer {
             int j = mouseY - this.guiTop;
             int newTab = tabs.get(currentTab).checkTabClicked(i, j);
             if (newTab != -1 && newTab < tabs.size()) {
-            	switchTab(newTab);
+            	switchTab(newTab, true);
             	return;
             }
 		}
 		super.mouseReleased(mouseX, mouseY, state);
 	}
 	
-	private void switchTab(int newTab) {
+	private void switchTab(int newTab, boolean reinit) {
 		currentTab = newTab;
+		
+		ProgrammerTab tab = tabs.get(newTab);
+		xSize = tab.getXSize();
+		ySize = tab.getYSize();
 		// clear ButtonLists etc
-		container.setUsable(tabs.get(newTab).hasSlot());
+		container.setUsable(tab.hasSlot());
+		
+		if (reinit) {
+			// reinit screen
+			super.initGui();
+		}
 	}
 
 }
