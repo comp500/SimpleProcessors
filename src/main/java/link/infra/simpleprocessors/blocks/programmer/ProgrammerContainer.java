@@ -45,7 +45,7 @@ public class ProgrammerContainer extends Container {
 	}
 
 	private void addOwnSlots() {
-		processorSlot = new SlotItemHandler(inputStackHandler, 0, 0, 0);
+		processorSlot = new SlotItemHandler(inputStackHandler, 0, 146, 41);
 		addSlotToContainer(processorSlot);
 	}
 
@@ -85,7 +85,7 @@ public class ProgrammerContainer extends Container {
 	public void setUsable(boolean usable) {
 		this.usable = usable;
 		if (usable) {
-			processorSlot.xPos = 0;
+			processorSlot.xPos = 146;
 		} else {
 			processorSlot.xPos = -999; // make slot invisible
 		}
