@@ -9,18 +9,20 @@ import link.infra.simpleprocessors.script.apis.Require;
 public class SandboxRunner {
 
 	private NashornSandbox sandbox;
+	private Require require;
 
-	public SandboxRunner() {
+	public SandboxRunner(Require req) {
 		sandbox = NashornSandboxes.create();
 		sandbox.setMaxCPUTime(1000); // prevent while(true)
 		sandbox.setExecutor(Executors.newSingleThreadExecutor());
 		sandbox.setDebug(true);
+		require = req;
 	}
 
 	public void init() {
 		// inject "native" functions into Nashorn
 		sandbox.inject("console", new Console());
-		sandbox.inject("require_native", new Require());
+		sandbox.inject("require_native", require);
 		injectRequireFix();
 	}
 
@@ -28,7 +30,7 @@ public class SandboxRunner {
 		var exports = {};
 		var require = (function(require_native) {
 			return function(str) {
-				var req = require_native.getnative(str);
+				var req = require_native.getApi(str);
 				if (req == null) {
 					var codeString = require_native.get(str);
 					if (codeString) {
@@ -51,7 +53,7 @@ public class SandboxRunner {
 
 	public void injectRequireFix() {
 		// load require override with eval() to allow module loading
-		sandbox.eval("var exports={},require=function(c){return function(b){var a=c.getnative(b);return null==a?(a=c.get(b))?(b=exports,exports={},eval(a),a=exports,exports=b,a):null:a}}(require_native);delete require_native;");
+		sandbox.eval("var exports={},require=function(c){return function(b){var a=c.getApi(b);return null==a?(a=c.get(b))?(b=exports,exports={},eval(a),a=exports,exports=b,a):null:a}}(require_native);delete require_native;");
 	}
 	
 	public Object evalCode(String code) {
