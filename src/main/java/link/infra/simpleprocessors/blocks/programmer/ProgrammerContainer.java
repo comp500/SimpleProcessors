@@ -14,11 +14,10 @@ import net.minecraftforge.items.SlotItemHandler;
 public class ProgrammerContainer extends Container {
 
 	private ProgrammerTileEntity te;
-	private Slot processorSlot;
 	private boolean usable = true;
 	private IInventory playerInv;
 	
-	private ItemStackHandler inputStackHandler = new ItemStackHandler(1);
+	public ItemStackHandler inputStackHandler = new ItemStackHandler(1);
 
 	public ProgrammerContainer(IInventory playerInventory, ProgrammerTileEntity te) {
 		this.te = te;
@@ -48,8 +47,7 @@ public class ProgrammerContainer extends Container {
 	}
 
 	private void addOwnSlots() {
-		processorSlot = new SlotItemHandler(inputStackHandler, 0, 146, 41);
-		addSlotToContainer(processorSlot);
+		addSlotToContainer(new SlotItemHandler(inputStackHandler, 0, 146, 41));
 	}
 
 	@Nullable

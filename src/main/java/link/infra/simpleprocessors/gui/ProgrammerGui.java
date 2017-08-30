@@ -1,11 +1,13 @@
 package link.infra.simpleprocessors.gui;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.item.ItemStack;
 
 public class ProgrammerGui extends GuiContainer {
 
@@ -39,6 +41,11 @@ public class ProgrammerGui extends GuiContainer {
 		int newTab = tabs.get(currentTab).checkTabClicked(i, j);
         if (newTab != -1 && newTab < tabs.size()) {
         	this.drawHoveringText(I18n.format(tabs.get(newTab).getUnlocalizedName()), mouseX, mouseY);
+        }
+        
+        ItemStack currentProcessor = container.inputStackHandler.getStackInSlot(0);
+        if (currentProcessor != null && currentProcessor != ItemStack.EMPTY) {
+        	this.drawCenteredString(fontRenderer, currentProcessor.getDisplayName(), guiLeft + 71, guiTop + 36, Color.darkGray.getRGB());
         }
 	}
 
