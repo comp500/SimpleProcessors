@@ -7,14 +7,20 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 public class ProgrammerContainer extends Container {
 
 	private ProgrammerTileEntity te;
+	private Slot processorSlot;
+	private boolean usable = true;
+	
+	private ItemStackHandler inputStackHandler = new ItemStackHandler(1);
 
 	public ProgrammerContainer(IInventory playerInventory, ProgrammerTileEntity te) {
 		this.te = te;
-
+		
 		addOwnSlots();
 		addPlayerSlots(playerInventory);
 	}
@@ -39,17 +45,8 @@ public class ProgrammerContainer extends Container {
 	}
 
 	private void addOwnSlots() {
-		/*IItemHandler itemHandler = this.te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-		int x = 9;
-		int y = 6;
-
-		// Add our own slots
-		int slotIndex = 0;
-		for (int i = 0; i < itemHandler.getSlots(); i++) {
-			addSlotToContainer(new SlotItemHandler(itemHandler, slotIndex, x, y));
-			slotIndex++;
-			x += 18;
-		}*/
+		processorSlot = new SlotItemHandler(inputStackHandler, 0, 0, 0);
+		addSlotToContainer(processorSlot);
 	}
 
 	@Nullable
@@ -58,7 +55,7 @@ public class ProgrammerContainer extends Container {
 		ItemStack itemstack = null;
 		Slot slot = this.inventorySlots.get(index);
 
-		if (slot != null && slot.getHasStack()) {
+		if (usable && slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
 
@@ -83,6 +80,15 @@ public class ProgrammerContainer extends Container {
 	@Override
 	public boolean canInteractWith(EntityPlayer playerIn) {
 		return te.canInteractWith(playerIn);
+	}
+	
+	public void setUsable(boolean usable) {
+		this.usable = usable;
+		if (usable) {
+			processorSlot.xPos = 0;
+		} else {
+			processorSlot.xPos = -999; // make slot invisible
+		}
 	}
 
 }

@@ -11,9 +11,12 @@ public class ProgrammerGui extends GuiContainer {
 
 	private int currentTab = 0;
 	private ArrayList<ProgrammerTab> tabs;
+	protected ProgrammerContainer container;
 
 	public ProgrammerGui(ProgrammerTileEntity tileEntity, ProgrammerContainer container) {
 		super(container);
+		
+		this.container = container;
 
 		tabs = new ArrayList<ProgrammerTab>();
 		tabs.add(new InsertTab());
@@ -47,11 +50,17 @@ public class ProgrammerGui extends GuiContainer {
             int j = mouseY - this.guiTop;
             int newTab = tabs.get(currentTab).checkTabClicked(i, j);
             if (newTab != -1 && newTab < tabs.size()) {
-            	currentTab = newTab;
+            	switchTab(newTab);
             	return;
             }
 		}
 		super.mouseReleased(mouseX, mouseY, state);
+	}
+	
+	private void switchTab(int newTab) {
+		currentTab = newTab;
+		// clear ButtonLists etc
+		container.setUsable(tabs.get(newTab).hasSlot());
 	}
 
 }

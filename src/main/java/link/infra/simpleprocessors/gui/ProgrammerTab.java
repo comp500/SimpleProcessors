@@ -48,5 +48,9 @@ public class ProgrammerTab {
 	public String getUnlocalizedName() {
 		return "tooltip." + SimpleProcessors.MODID + ".programmer.tab." + name + ".name";
 	}
+	
+	public boolean hasSlot() {
+		return false;
+	}
 
 }

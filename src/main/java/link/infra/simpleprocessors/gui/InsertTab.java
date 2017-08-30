@@ -11,4 +11,9 @@ public class InsertTab extends ProgrammerTab {
 		super(background, "insert");
 	}
 	
+	@Override
+	public boolean hasSlot() {
+		return true;
+	}
+	
 }
