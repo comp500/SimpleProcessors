@@ -1,1 +1,3 @@
 itemGroup.simpleprocessors=Simple Processors
+tile.simpleprocessors.programmer.name=Programmer
+tooltip.simpleprocessors.block.programmer.name=You compressed a 0.5m^3 plank into a black hole.

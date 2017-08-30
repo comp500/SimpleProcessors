@@ -68,7 +68,7 @@ public class SPBlock extends Block {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		if (extraTooltip) {
-			tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item." + itemId + ".name"));
+			tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".block." + itemId + ".name"));
 		}
 	}
 

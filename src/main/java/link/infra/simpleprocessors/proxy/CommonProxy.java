@@ -1,8 +1,11 @@
 package link.infra.simpleprocessors.proxy;
 
+import link.infra.simpleprocessors.ModBlocks;
 import link.infra.simpleprocessors.SimpleProcessors;
+import link.infra.simpleprocessors.blocks.Programmer;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -26,14 +29,13 @@ public class CommonProxy {
 
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
-		//event.getRegistry().register(new TestBlock());
+		event.getRegistry().register(new Programmer());
 		//GameRegistry.registerTileEntity(TestBlockTile.class, SimpleProcessors.MODID + "_testblocktile");
 	}
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
 		//event.getRegistry().register(new EcmaItem("solderingiron", true, 1));
-		//event.getRegistry().register(new Screwdriver());
-		//event.getRegistry().register(new ItemBlock(ModBlocks.testblock).setRegistryName(ModBlocks.testblock.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(ModBlocks.programmer).setRegistryName(ModBlocks.programmer.getRegistryName()));
 	}
 }
