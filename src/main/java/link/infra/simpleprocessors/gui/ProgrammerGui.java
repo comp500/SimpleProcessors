@@ -28,7 +28,7 @@ public class ProgrammerGui extends GuiContainer {
 		int i = mouseX - this.guiLeft;
         int j = mouseY - this.guiTop;
 		int newTab = tabs.get(currentTab).checkTabClicked(i, j);
-        if (newTab != -1) {
+        if (newTab != -1 && newTab < tabs.size()) {
         	this.drawHoveringText(I18n.format(tabs.get(newTab).getUnlocalizedName()), mouseX, mouseY);
         }
 	}

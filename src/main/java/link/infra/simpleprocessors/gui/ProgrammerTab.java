@@ -38,7 +38,7 @@ public class ProgrammerTab {
 	
 	public int checkTabClicked(int mouseX, int mouseY) {
 		if (mouseY < 30) {
-			if (mouseX < 86) {
+			if (mouseX < 86 && mouseX > 0) {
 				return mouseX / 29;
 			}
 		}
