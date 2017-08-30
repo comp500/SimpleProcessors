@@ -2,7 +2,7 @@ package link.infra.simpleprocessors.proxy;
 
 import link.infra.simpleprocessors.ModBlocks;
 import link.infra.simpleprocessors.SimpleProcessors;
-import link.infra.simpleprocessors.blocks.Programmer;
+import link.infra.simpleprocessors.blocks.programmer.Programmer;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
