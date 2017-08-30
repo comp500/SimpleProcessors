@@ -35,6 +35,7 @@ public class ProgrammerGui extends GuiContainer {
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawDefaultBackground();
 		super.drawScreen(mouseX, mouseY, partialTicks);
+		super.renderHoveredToolTip(mouseX, mouseY);
 		
 		int i = mouseX - this.guiLeft;
         int j = mouseY - this.guiTop;
