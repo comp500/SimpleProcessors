@@ -61,10 +61,10 @@ public class ProgrammerContainer extends Container {
 
 			if (index < 1) {
 				if (!this.mergeItemStack(itemstack1, 1, this.inventorySlots.size(), true)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if (itemstack1.isEmpty()) {
