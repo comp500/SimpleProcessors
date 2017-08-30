@@ -10,18 +10,20 @@ public class SandboxRunner {
 
 	private NashornSandbox sandbox;
 	private Require require;
+	private IRunEnv env;
 
-	public SandboxRunner(Require req) {
+	public SandboxRunner(Require req, IRunEnv environment) {
 		sandbox = NashornSandboxes.create();
 		sandbox.setMaxCPUTime(1000); // prevent while(true)
 		sandbox.setExecutor(Executors.newSingleThreadExecutor());
 		sandbox.setDebug(true);
 		require = req;
+		env = environment;
 	}
 
 	public void init() {
 		// inject "native" functions into Nashorn
-		sandbox.inject("console", new Console());
+		sandbox.inject("console", new Console(env));
 		sandbox.inject("require_native", require);
 		injectRequireFix();
 	}
