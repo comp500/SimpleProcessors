@@ -1,5 +1,6 @@
 package link.infra.simpleprocessors.proxy;
 
+import link.infra.simpleprocessors.blocks.programmer.Programmer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import link.infra.simpleprocessors.gui.ProgrammerGui;
@@ -13,21 +14,25 @@ public class GuiProxy implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		BlockPos pos = new BlockPos(x, y, z);
-		TileEntity te = world.getTileEntity(pos);
-		if (te instanceof ProgrammerTileEntity) {
-			return new ProgrammerContainer(player.inventory, (ProgrammerTileEntity) te);
+		if (ID == Programmer.GUI_ID) {
+			BlockPos pos = new BlockPos(x, y, z);
+			TileEntity te = world.getTileEntity(pos);
+			if (te instanceof ProgrammerTileEntity) {
+				return new ProgrammerContainer(player.inventory, (ProgrammerTileEntity) te);
+			}
 		}
 		return null;
 	}
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		BlockPos pos = new BlockPos(x, y, z);
-		TileEntity te = world.getTileEntity(pos);
-		if (te instanceof ProgrammerTileEntity) {
-			ProgrammerTileEntity containerTileEntity = (ProgrammerTileEntity) te;
-			return new ProgrammerGui(containerTileEntity, new ProgrammerContainer(player.inventory, containerTileEntity));
+		if (ID == Programmer.GUI_ID) {
+			BlockPos pos = new BlockPos(x, y, z);
+			TileEntity te = world.getTileEntity(pos);
+			if (te instanceof ProgrammerTileEntity) {
+				ProgrammerTileEntity containerTileEntity = (ProgrammerTileEntity) te;
+				return new ProgrammerGui(containerTileEntity, new ProgrammerContainer(player.inventory, containerTileEntity));
+			}
 		}
 		return null;
 	}
