@@ -1,6 +1,8 @@
 package link.infra.simpleprocessors.gui;
 
 import link.infra.simpleprocessors.SimpleProcessors;
+import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.ResourceLocation;
 
 public class ProgrammerTab {
@@ -51,6 +53,10 @@ public class ProgrammerTab {
 	
 	public boolean hasSlot() {
 		return false;
+	}
+	
+	public void drawTab(ProgrammerGui gui, FontRenderer fontRenderer, ProgrammerContainer container) {
+		// stub
 	}
 
 }
