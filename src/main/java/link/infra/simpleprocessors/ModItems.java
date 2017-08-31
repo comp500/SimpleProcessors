@@ -1,6 +1,7 @@
 package link.infra.simpleprocessors;
 
 import link.infra.simpleprocessors.items.DuctTape;
+import link.infra.simpleprocessors.items.SolderingIron;
 import link.infra.simpleprocessors.items.processor.Processor;
 import link.infra.simpleprocessors.util.SPItem;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,7 +21,7 @@ public class ModItems {
     public static Processor processor;
 	
 	@GameRegistry.ObjectHolder("simpleprocessors:solderingiron")
-    public static SPItem solderingiron;
+    public static SolderingIron solderingiron;
 	@GameRegistry.ObjectHolder("simpleprocessors:screwdriver")
     public static SPItem screwdriver;
 	@GameRegistry.ObjectHolder("simpleprocessors:ducttape")

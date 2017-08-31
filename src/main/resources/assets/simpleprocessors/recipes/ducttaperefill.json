@@ -5,7 +5,8 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
   	{
-  	  "item": "simpleprocessors:ducttape"
+  	  "item": "simpleprocessors:ducttape",
+  	  "data": 32767
   	},
   	{
   	  "item": "minecraft:paper"
