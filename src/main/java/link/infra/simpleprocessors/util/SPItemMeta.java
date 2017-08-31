@@ -1,9 +1,15 @@
 package link.infra.simpleprocessors.util;
 
+import java.util.List;
+
+import link.infra.simpleprocessors.SimpleProcessors;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -62,5 +68,13 @@ public class SPItemMeta extends SPItem {
 	public String getUnlocalizedName(ItemStack stack) {
         return this.getUnlocalizedName() + "_" + stack.getItemDamage();
     }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		if (extraTooltip) {
+			tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item." + itemId + "_" + stack.getItemDamage() + ".name"));
+		}
+	}
 
 }

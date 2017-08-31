@@ -16,8 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class SPItem extends Item {
 
-	private boolean extraTooltip;
-	private String itemId;
+	protected boolean extraTooltip;
+	protected String itemId;
 	private int stackLimit;
 	private boolean customStackLimit = false;
 
