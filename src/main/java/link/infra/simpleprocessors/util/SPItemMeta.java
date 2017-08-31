@@ -60,7 +60,7 @@ public class SPItemMeta extends SPItem {
 	
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-        return "item." + this.getUnlocalizedName() + "_" + stack.getItemDamage();
+        return this.getUnlocalizedName() + "_" + stack.getItemDamage();
     }
 
 }

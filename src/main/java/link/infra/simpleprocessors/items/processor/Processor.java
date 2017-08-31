@@ -5,7 +5,7 @@ import link.infra.simpleprocessors.util.SPItemMeta;
 public class Processor extends SPItemMeta {
 
 	public Processor() {
-		super("processor", true, 3);
+		super("processor", true, 4);
 	}
 
 }
