@@ -4,6 +4,7 @@ import link.infra.simpleprocessors.ModBlocks;
 import link.infra.simpleprocessors.SimpleProcessors;
 import link.infra.simpleprocessors.blocks.programmer.Programmer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
+import link.infra.simpleprocessors.items.processor.Processor;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -37,7 +38,7 @@ public class CommonProxy {
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
-		//event.getRegistry().register(new EcmaItem("solderingiron", true, 1));
+		event.getRegistry().register(new Processor());
 		event.getRegistry().register(new ItemBlock(ModBlocks.programmer).setRegistryName(ModBlocks.programmer.getRegistryName()));
 	}
 }

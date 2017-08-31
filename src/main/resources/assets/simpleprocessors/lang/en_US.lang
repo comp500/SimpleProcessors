@@ -1,4 +1,5 @@
 itemGroup.simpleprocessors=Simple Processors
+
 tile.simpleprocessors.programmer.name=Programmer
 tooltip.simpleprocessors.block.programmer.name=Refines coffee into code.
 tooltip.simpleprocessors.programmer.tab.insert.name=Upload Code
@@ -7,3 +8,9 @@ tooltip.simpleprocessors.programmer.tab.modules.name=Minecraft Package Manager
 button.simpleprocessors.programmer.tab.insert.upload.name=Upload
 button.simpleprocessors.programmer.tab.insert.format.name=Format
 label.simpleprocessors.programmer.tab.insert.insertproc.name=Insert Processor
+
+item.simpleprocessors.processor.name=Processor
+tooltip.simpleprocessors.item.processor.name=Processes code.
+item.simpleprocessors.processor_0.name=Iron Processor
+item.simpleprocessors.processor_1.name=Gold Processor
+item.simpleprocessors.processor_2.name=Diamond Processor

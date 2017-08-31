@@ -1,8 +1,10 @@
 package link.infra.simpleprocessors;
 
+import link.infra.simpleprocessors.items.processor.Processor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -13,16 +15,12 @@ public class ModItems {
 	    }
 	};
 	
-	//@GameRegistry.ObjectHolder("lightcraft:solderingiron")
-    //public static EcmaItem solderingiron;
-	
-	//@GameRegistry.ObjectHolder("lightcraft:screwdriver")
-    //public static Screwdriver screwdriver;
+	@GameRegistry.ObjectHolder("simpleprocessors:processor")
+    public static Processor processor;
 	
 	@SideOnly(Side.CLIENT)
     public static void initModels() {
-		//solderingiron.initModel();
-		//screwdriver.initModel();
+		processor.initModel();
 	}
 
 }
