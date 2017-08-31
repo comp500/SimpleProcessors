@@ -26,8 +26,7 @@ public class ProgrammerGui extends GuiContainer {
 	
 	@Override
 	public void initGui() {
-		switchTab(0, false);
-		super.initGui();
+		switchTab(0);
 	}
 
 	@Override
@@ -61,24 +60,22 @@ public class ProgrammerGui extends GuiContainer {
             int j = mouseY - this.guiTop;
             int newTab = tabs.get(currentTab).checkTabClicked(i, j);
             if (newTab != -1 && newTab < tabs.size()) {
-            	switchTab(newTab, true);
+            	switchTab(newTab);
             	return;
             }
 		}
 		super.mouseReleased(mouseX, mouseY, state);
 	}
 	
-	private void switchTab(int newTab, boolean reinit) {
+	private void switchTab(int newTab) {
 		currentTab = newTab;
 		
 		ProgrammerTab tab = tabs.get(newTab);
 		xSize = tab.getXSize();
 		ySize = tab.getYSize();
 		
-		if (reinit) {
-			// reinit screen
-			super.initGui();
-		}
+		// reinit screen
+		super.initGui();
 		
 		this.buttonList.clear();
 		tab.initButtons(buttonList, this);
