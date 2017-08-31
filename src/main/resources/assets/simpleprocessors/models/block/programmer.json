@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "simpleprocessors:blocks/programmer",
+    "down": "simpleprocessors:blocks/programmer",
+    "up": "simpleprocessors:blocks/programmer",
+    "east": "simpleprocessors:blocks/programmer",
+    "west": "simpleprocessors:blocks/programmer",
+    "north": "simpleprocessors:blocks/programmer",
+    "south": "simpleprocessors:blocks/programmer"
+  }
+}
