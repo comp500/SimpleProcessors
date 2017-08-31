@@ -29,13 +29,17 @@ public class InsertTab extends ProgrammerTab {
 		ItemStack currentProcessor = container.inputStackHandler.getStackInSlot(0);
         if (currentProcessor != null && !currentProcessor.isEmpty()) {
         	fontRenderer.drawString(currentProcessor.getDisplayName(), gui.getGuiLeft() + 7, gui.getGuiTop() + 36, Color.darkGray.getRGB());
+        } else {
+        	fontRenderer.drawString(I18n.format("label.simpleprocessors.programmer.tab.insert.insertproc.name"), gui.getGuiLeft() + 7, gui.getGuiTop() + 36, Color.darkGray.getRGB());
         }
 	}
 	
 	@Override
-	public void initButtons(List<GuiButton> buttonList) {
-		buttonList.add(new GuiButton(0, 127, 91, 40, 15, I18n.format("button.simpleprocessors.programmer.tab.modules.upload.name")));
-		buttonList.add(new GuiButton(1, 86, 91, 40, 15, I18n.format("button.simpleprocessors.programmer.tab.modules.format.name")));
+	public void initButtons(List<GuiButton> buttonList, ProgrammerGui gui) {
+		int guiLeft = gui.getGuiLeft();
+		int guiTop = gui.getGuiTop();
+		buttonList.add(new GuiButton(0, guiLeft + 127, guiTop + 91, 40, 15, I18n.format("button.simpleprocessors.programmer.tab.insert.upload.name")));
+		buttonList.add(new GuiButton(1, guiLeft + 86, guiTop + 91, 40, 15, I18n.format("button.simpleprocessors.programmer.tab.insert.format.name")));
 	}
 	
 }

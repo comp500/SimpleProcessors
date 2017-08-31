@@ -62,7 +62,7 @@ public class ProgrammerTab {
 		// stub
 	}
 	
-	public void initButtons(List<GuiButton> buttonList) {
+	public void initButtons(List<GuiButton> buttonList, ProgrammerGui gui) {
 		
 	}
 
