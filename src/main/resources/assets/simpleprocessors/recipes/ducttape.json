@@ -6,7 +6,7 @@
     "sp",
     "pi"
   ],
-  "type": "crafting_shaped",
+  "type": "minecraft:crafting_shaped",
   "key": {
     "i": {
       "item": "simpleprocessors:solderingiron"
