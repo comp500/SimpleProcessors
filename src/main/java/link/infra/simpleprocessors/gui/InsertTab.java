@@ -24,7 +24,7 @@ public class InsertTab extends ProgrammerTab {
 	@Override
 	public void drawTab(ProgrammerGui gui, FontRenderer fontRenderer, ProgrammerContainer container) {
 		ItemStack currentProcessor = container.inputStackHandler.getStackInSlot(0);
-        if (currentProcessor != null && currentProcessor != ItemStack.EMPTY) {
+        if (currentProcessor != null && !currentProcessor.isEmpty()) {
         	gui.drawCenteredString(fontRenderer, currentProcessor.getDisplayName(), gui.getGuiLeft() + 71, gui.getGuiTop() + 36, Color.darkGray.getRGB());
         }
 	}
