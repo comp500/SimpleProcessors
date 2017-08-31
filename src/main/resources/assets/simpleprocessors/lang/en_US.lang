@@ -10,8 +10,12 @@ button.simpleprocessors.programmer.tab.insert.format.name=Format
 label.simpleprocessors.programmer.tab.insert.insertproc.name=Insert Processor
 
 item.simpleprocessors.processor.name=Processor
-tooltip.simpleprocessors.item.processor.name=Processes code.
 item.simpleprocessors.processor_0.name=Tuberous Processor
 item.simpleprocessors.processor_1.name=Iron Processor
 item.simpleprocessors.processor_2.name=Gold Processor
 item.simpleprocessors.processor_3.name=Diamond Processor
+tooltip.simpleprocessors.item.processor.name=Processes code.
+tooltip.simpleprocessors.item.processor_0.name=Somehow, you got a potato to process code.
+tooltip.simpleprocessors.item.processor_1.name=Processes code.
+tooltip.simpleprocessors.item.processor_2.name=Processes code.
+tooltip.simpleprocessors.item.processor_3.name=Processes code.
