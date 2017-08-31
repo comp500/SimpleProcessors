@@ -20,6 +20,7 @@ public class ProgrammerGui extends GuiContainer {
 
 		tabs = new ArrayList<ProgrammerTab>();
 		tabs.add(new InsertTab());
+		tabs.add(new BrowserTab());
 		tabs.add(new ModulesTab());
 	}
 	
