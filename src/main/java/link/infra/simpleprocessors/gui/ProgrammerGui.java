@@ -74,7 +74,8 @@ public class ProgrammerGui extends GuiContainer {
 		ProgrammerTab tab = tabs.get(newTab);
 		xSize = tab.getXSize();
 		ySize = tab.getYSize();
-		// clear ButtonLists etc
+		this.buttonList.clear();
+		tab.initButtons(buttonList);
 		container.setUsable(tab.hasSlot());
 		
 		if (reinit) {

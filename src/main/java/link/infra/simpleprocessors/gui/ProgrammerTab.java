@@ -1,8 +1,11 @@
 package link.infra.simpleprocessors.gui;
 
+import java.util.List;
+
 import link.infra.simpleprocessors.SimpleProcessors;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.ResourceLocation;
 
 public class ProgrammerTab {
@@ -57,6 +60,10 @@ public class ProgrammerTab {
 	
 	public void drawTab(ProgrammerGui gui, FontRenderer fontRenderer, ProgrammerContainer container) {
 		// stub
+	}
+	
+	public void initButtons(List<GuiButton> buttonList) {
+		
 	}
 
 }
