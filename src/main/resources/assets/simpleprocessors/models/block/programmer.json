@@ -2,11 +2,11 @@
   "parent": "block/cube",
   "textures": {
     "particle": "simpleprocessors:blocks/programmer",
-    "down": "simpleprocessors:blocks/programmer",
-    "up": "simpleprocessors:blocks/programmer",
-    "east": "simpleprocessors:blocks/programmer",
-    "west": "simpleprocessors:blocks/programmer",
+    "down": "minecraft:blocks/stone",
+    "up": "minecraft:blocks/stone",
+    "east": "minecraft:blocks/stone",
+    "west": "minecraft:blocks/stone",
     "north": "simpleprocessors:blocks/programmer",
-    "south": "simpleprocessors:blocks/programmer"
+    "south": "minecraft:blocks/stone"
   }
 }
