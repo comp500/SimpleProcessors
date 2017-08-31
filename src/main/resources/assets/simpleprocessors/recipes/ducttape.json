@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "simpleprocessors:ducttape"
+  },
+  "pattern": [
+    "sp",
+    "pi"
+  ],
+  "type": "crafting_shaped",
+  "key": {
+    "i": {
+      "item": "simpleprocessors:solderingiron"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "p": {
+      "item": "minecraft:paper"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "simpleprocessors:ducttape"
+  },
+  "type": "crafting_shapeless",
+  "ingredients": [
+  	{
+  	  "item": "simpleprocessors:ducttape"
+  	},
+  	{
+  	  "item": "minecraft:paper"
+  	}
+  ]
+}
