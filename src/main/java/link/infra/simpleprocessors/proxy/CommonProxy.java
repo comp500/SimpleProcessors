@@ -7,7 +7,7 @@ import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import link.infra.simpleprocessors.items.DuctTape;
 import link.infra.simpleprocessors.items.SolderingIron;
 import link.infra.simpleprocessors.items.processor.Processor;
-import link.infra.simpleprocessors.util.SPItem;
+import link.infra.simpleprocessors.util.SPItemMeta;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -43,7 +43,7 @@ public class CommonProxy {
 	public static void registerItems(RegistryEvent.Register<Item> event) {
 		event.getRegistry().register(new Processor());
 		event.getRegistry().register(new SolderingIron());
-		event.getRegistry().register(new SPItem("screwdriver", true, 1));
+		event.getRegistry().register(new SPItemMeta("screwdriver", true, 1, 2));
 		event.getRegistry().register(new DuctTape());
 		event.getRegistry().register(new ItemBlock(ModBlocks.programmer).setRegistryName(ModBlocks.programmer.getRegistryName()));
 	}
