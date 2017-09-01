@@ -2,12 +2,13 @@ package link.infra.simpleprocessors.blocks.programmer;
 
 import javax.annotation.Nullable;
 
-import link.infra.simpleprocessors.ModItems;
+import link.infra.simpleprocessors.items.processor.Processor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -20,12 +21,19 @@ public class ProgrammerContainer extends Container {
 	
 	public ItemStackHandler inputStackHandler = new ItemStackHandler(1) {
 		@Override
+		public int getSlotLimit(int slot) {
+			return 1; // Only allow one item
+		}
+		
+		@Override
         public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
-			if (stack.isItemEqual(new ItemStack(ModItems.processor)) && this.getStackInSlot(slot) == ItemStack.EMPTY) { // Only allow 1 processor
-				return super.insertItem(slot, stack, simulate);
-			} else {
-				return stack;
+			Item stackItem = stack.getItem();
+			if (stackItem instanceof Processor) { // Only allow processors
+				if (((Processor) stackItem).isValidMeta(stack)) { // don't allow Invalid Item! (check before flashing as well)
+					return super.insertItem(slot, stack, simulate);
+				}
 			}
+			return stack;
         }
 	};
 

@@ -25,11 +25,22 @@ public class Processor extends SPItemMeta {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
-		int damage = stack.getItemDamage();
-		if (damage < 7) {
-			tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item.processor.storage.name") + ": " + storageList.get(damage) + " KB");
-			tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item.processor.addon.name") + ": " + addonCardList.get(damage));
+		if (isValidMeta(stack)) {
+			tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item.processor.storage.name") + ": " + getStorage(stack) + " KB");
+			tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item.processor.addon.name") + ": " + getAddonCount(stack));
 		}
+	}
+	
+	public int getStorage(ItemStack stack) {
+		return storageList.get(stack.getItemDamage());
+	}
+	
+	public int getAddonCount(ItemStack stack) {
+		return addonCardList.get(stack.getItemDamage());
+	}
+	
+	public boolean isValidMeta(ItemStack stack) {
+		return stack.getItemDamage() < 7;
 	}
 
 }
