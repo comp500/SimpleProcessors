@@ -22,7 +22,7 @@
     },
     "p": {
       "item": "simpleprocessors:processor",
-      "meta": 32767
+      "data": 32767
     },
     "S": {
       "item": "simpleprocessors:processorsocket"

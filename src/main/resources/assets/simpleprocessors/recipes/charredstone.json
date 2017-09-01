@@ -10,6 +10,6 @@
   	{
   	  "type": "forge:ore_dict",
       "ore": "stone"
-  	},
+  	}
   ]
 }
