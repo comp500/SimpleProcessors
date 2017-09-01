@@ -1,4 +1,6 @@
 itemGroup.simpleprocessors=Simple Processors
+item.simpleprocessors.invalid.name=Invalid Item!
+tooltip.simpleprocessors.item.invalid.name=This won't do anything. How did you get this?!
 
 tile.simpleprocessors.programmer.name=Programmer
 tooltip.simpleprocessors.block.programmer.name=Refines coffee into code.

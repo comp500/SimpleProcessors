@@ -66,14 +66,22 @@ public class SPItemMeta extends SPItem {
 	
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-        return this.getUnlocalizedName() + "_" + stack.getItemDamage();
+		if (stack.getItemDamage() < metas) {
+			return this.getUnlocalizedName() + "_" + stack.getItemDamage();
+		} else {
+			return SimpleProcessors.MODID + ".invalid";
+		}
     }
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		if (extraTooltip) {
-			tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item." + itemId + "_" + stack.getItemDamage() + ".name"));
+			if (stack.getItemDamage() < metas) {
+				tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item." + itemId + "_" + stack.getItemDamage() + ".name"));
+			} else {
+				tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item.invalid.name"));
+			}
 		}
 	}
 
