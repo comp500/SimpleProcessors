@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Processor extends SPItemMeta {
 	
-	public List<Integer> storageList = Arrays.asList(1, 2, 4, 8, 8, 16, 32);
+	public List<Integer> storageList = Arrays.asList(1, 2, 4, 8, 8, 16, 64);
 	public List<Integer> addonCardList = Arrays.asList(0, 1, 2, 4, 4, 8, 8);
 
 	public Processor() {
