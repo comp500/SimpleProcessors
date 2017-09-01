@@ -1,9 +1,9 @@
 {
 	"textures": {
 		"0": "simpleprocessors:blocks/block",
-		"1": "simpleprocessors:blocks/terminal",
-		"2": "simpleprocessors:blocks/base3d",
-		"3": "simpleprocessors:blocks/mobo",
+		"1": "simpleprocessors:blocks/programmerterminal",
+		"2": "simpleprocessors:blocks/programmerparts",
+		"3": "simpleprocessors:blocks/programmermobo",
 		"particle": "simpleprocessors:blocks/block"
 	},
 	"elements": [
