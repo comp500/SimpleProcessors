@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "simpleprocessors:processorsocket"
+  },
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+  	{
+  	  "item": "simpleprocessors:solderingiron"
+  	},
+  	{
+  	  "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+  	},
+  	{
+  	  "type": "forge:ore_dict",
+      "ore": "stone"
+  	},
+  ]
+}

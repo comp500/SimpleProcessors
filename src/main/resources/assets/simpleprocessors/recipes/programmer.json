@@ -1,0 +1,31 @@
+{
+  "result": {
+    "item": "simpleprocessors:programmer"
+  },
+  "pattern": [
+    "Sbb",
+    "prs",
+    "Sbb"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+  	"s": {
+  	  "item": "simpleprocessors:solderingiron"
+  	},
+    "b": {
+      "type": "forge:ore_dict",
+      "ore": "stone"
+    },
+    "r": {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    },
+    "p": {
+      "item": "simpleprocessors:processor",
+      "meta": 32767
+    },
+    "S": {
+      "item": "simpleprocessors:processorsocket"
+    }
+  }
+}

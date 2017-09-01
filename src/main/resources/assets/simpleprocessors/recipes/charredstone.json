@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "simpleprocessors:charredstone"
+  },
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+  	{
+  	  "item": "simpleprocessors:solderingiron"
+  	},
+  	{
+  	  "type": "forge:ore_dict",
+      "ore": "stone"
+  	},
+  ]
+}
