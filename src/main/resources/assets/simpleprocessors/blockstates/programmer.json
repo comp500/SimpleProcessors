@@ -1,7 +1,8 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "simpleprocessors:programmer"
+    "model": "simpleprocessors:programmer",
+    "transform": "forge:default-block"
   },
   "variants": {
     "normal": [{}],
