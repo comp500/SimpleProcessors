@@ -2,6 +2,7 @@ package link.infra.simpleprocessors.blocks.programmer;
 
 import javax.annotation.Nullable;
 
+import link.infra.simpleprocessors.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
@@ -17,7 +18,16 @@ public class ProgrammerContainer extends Container {
 	private boolean usable = true;
 	private IInventory playerInv;
 	
-	public ItemStackHandler inputStackHandler = new ItemStackHandler(1);
+	public ItemStackHandler inputStackHandler = new ItemStackHandler(1) {
+		@Override
+        public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+			if (stack.isItemEqual(new ItemStack(ModItems.processor)) && this.getStackInSlot(slot) == ItemStack.EMPTY) { // Only allow 1 processor
+				return super.insertItem(slot, stack, simulate);
+			} else {
+				return stack;
+			}
+        }
+	};
 
 	public ProgrammerContainer(IInventory playerInventory, ProgrammerTileEntity te) {
 		this.te = te;
