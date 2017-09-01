@@ -6,16 +6,18 @@
     "sp",
     "pi"
   ],
-  "type": "minecraft:crafting_shaped",
+  "type": "forge:ore_shaped",
   "key": {
     "i": {
       "item": "simpleprocessors:solderingiron"
     },
     "s": {
-      "item": "minecraft:stick"
+      "type": "forge:ore_dict",
+      "ore": "stickWood"
     },
     "p": {
-      "item": "minecraft:paper"
+      "type": "forge:ore_dict",
+      "ore": "paper"
     }
   }
 }

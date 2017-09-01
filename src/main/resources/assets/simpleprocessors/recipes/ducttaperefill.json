@@ -2,14 +2,15 @@
   "result": {
     "item": "simpleprocessors:ducttape"
   },
-  "type": "minecraft:crafting_shapeless",
+  "type": "forge:ore_shapeless",
   "ingredients": [
   	{
   	  "item": "simpleprocessors:ducttape",
   	  "data": 32767
   	},
   	{
-  	  "item": "minecraft:paper"
+  	  "type": "forge:ore_dict",
+      "ore": "paper"
   	}
   ]
 }
