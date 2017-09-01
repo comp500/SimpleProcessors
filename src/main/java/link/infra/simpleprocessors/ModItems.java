@@ -12,8 +12,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModItems {
 	public static final CreativeTabs tab = new CreativeTabs(SimpleProcessors.MODID) {
-	    @Override public ItemStack getTabIconItem() {
-	        return new ItemStack(ModItems.processor); // TODO change to computer
+	    @Override 
+	    public ItemStack getTabIconItem() {
+	        return new ItemStack(ModItems.processor, 1, 1);
 	    }
 	};
 	
