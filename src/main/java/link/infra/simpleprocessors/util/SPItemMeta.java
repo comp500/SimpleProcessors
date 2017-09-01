@@ -69,7 +69,7 @@ public class SPItemMeta extends SPItem {
 		if (stack.getItemDamage() < metas) {
 			return this.getUnlocalizedName() + "_" + stack.getItemDamage();
 		} else {
-			return SimpleProcessors.MODID + ".invalid";
+			return "item." + SimpleProcessors.MODID + ".invalid";
 		}
     }
 	
