@@ -7,8 +7,10 @@ import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import link.infra.simpleprocessors.items.DuctTape;
 import link.infra.simpleprocessors.items.SolderingIron;
 import link.infra.simpleprocessors.items.processor.Processor;
+import link.infra.simpleprocessors.util.SPBlock;
 import link.infra.simpleprocessors.util.SPItemMeta;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
@@ -37,6 +39,7 @@ public class CommonProxy {
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 		event.getRegistry().register(new Programmer());
 		GameRegistry.registerTileEntity(ProgrammerTileEntity.class, SimpleProcessors.MODID + "_programmertile");
+		event.getRegistry().register(new SPBlock("charredstone", Material.ROCK));
 	}
 
 	@SubscribeEvent
@@ -46,5 +49,6 @@ public class CommonProxy {
 		event.getRegistry().register(new SPItemMeta("screwdriver", true, 1, 2));
 		event.getRegistry().register(new DuctTape());
 		event.getRegistry().register(new ItemBlock(ModBlocks.programmer).setRegistryName(ModBlocks.programmer.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(ModBlocks.charredstone).setRegistryName(ModBlocks.charredstone.getRegistryName()));
 	}
 }
