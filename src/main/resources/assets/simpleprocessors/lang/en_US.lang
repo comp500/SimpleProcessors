@@ -36,5 +36,6 @@ item.simpleprocessors.screwdriver_0.name=Screwdriver
 tooltip.simpleprocessors.item.screwdriver_0.name=It's a flat-head, but it also fits in most Philips head screws.
 item.simpleprocessors.screwdriver_1.name=Linus' Special Screwdriver
 tooltip.simpleprocessors.item.screwdriver_1.name=Orange and cool.
+item.simpleprocessors.processorsocket.name=Processor Socket
 
 tile.simpleprocessors.charredstone.name=Charred Stone

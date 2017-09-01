@@ -3,6 +3,7 @@ package link.infra.simpleprocessors;
 import link.infra.simpleprocessors.items.DuctTape;
 import link.infra.simpleprocessors.items.SolderingIron;
 import link.infra.simpleprocessors.items.processor.Processor;
+import link.infra.simpleprocessors.util.SPItem;
 import link.infra.simpleprocessors.util.SPItemMeta;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -27,6 +28,8 @@ public class ModItems {
     public static SPItemMeta screwdriver;
 	@GameRegistry.ObjectHolder("simpleprocessors:ducttape")
     public static DuctTape ducttape;
+	@GameRegistry.ObjectHolder("simpleprocessors:processorsocket")
+    public static SPItem processorsocket;
 	
 	@SideOnly(Side.CLIENT)
     public static void initModels() {
@@ -34,6 +37,7 @@ public class ModItems {
 		solderingiron.initModel();
 		screwdriver.initModel();
 		ducttape.initModel();
+		processorsocket.initModel();
 	}
 
 }
