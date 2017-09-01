@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "minecraft:stone"
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+  	{
+  	  "item": "simpleprocessors:charredstone"
+  	}
+  ]
+}
