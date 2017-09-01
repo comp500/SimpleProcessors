@@ -38,5 +38,10 @@ public class Programmer extends SPBlockOrientable implements ITileEntityProvider
 		player.openGui(SimpleProcessors.instance, GUI_ID, world, pos.getX(), pos.getY(), pos.getZ());
 		return true;
 	}
+	
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
 
 }
