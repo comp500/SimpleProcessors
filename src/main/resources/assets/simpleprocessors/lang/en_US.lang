@@ -25,6 +25,8 @@ tooltip.simpleprocessors.item.processor_3.name=You turned diamonds into graphite
 tooltip.simpleprocessors.item.processor_4.name=Turns out 9-way SLI only provides 4 times the performance. It scales really well.
 tooltip.simpleprocessors.item.processor_5.name=Turns out 9-way SLI only provides 4 times the performance. It scales really well.
 tooltip.simpleprocessors.item.processor_6.name=Turns out 9-way SLI only provides 4 times the performance. It scales really well.
+tooltip.simpleprocessors.item.processor.storage.name=Storage
+tooltip.simpleprocessors.item.processor.addon.name=Addon Card Slots
 
 item.simpleprocessors.solderingiron.name=Soldering Iron
 tooltip.simpleprocessors.item.solderingiron.name=You compressed a 0.5m^3 plank into a black hole.
