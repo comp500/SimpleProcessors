@@ -1,0 +1,29 @@
+{
+  "result": {
+    "item": "simpleprocessors:processor",
+    "data": 4
+  },
+  "pattern": [
+    "iii",
+    " rs",
+    "bbb"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+  	"s": {
+  	  "item": "simpleprocessors:solderingiron"
+  	},
+    "i": {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+    "b": {
+      "type": "forge:ore_dict",
+      "ore": "blockIron"
+    },
+    "r": {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    }
+  }
+}

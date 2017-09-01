@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "simpleprocessors:processor",
+    "data": 0
+  },
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+  	{
+  	  "item": "simpleprocessors:solderingiron"
+  	},
+  	{
+  	  "type": "forge:ore_dict",
+      "ore": "cropPotato"
+  	}
+  ]
+}

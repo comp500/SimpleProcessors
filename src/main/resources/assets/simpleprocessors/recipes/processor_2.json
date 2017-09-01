@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "simpleprocessors:processor",
+    "data": 2
+  },
+  "pattern": [
+    "ggg",
+    " rs",
+    "ggg"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+  	"s": {
+  	  "item": "simpleprocessors:solderingiron"
+  	},
+    "g": {
+      "type": "forge:ore_dict",
+      "ore": "ingotGold"
+    },
+    "r": {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    }
+  }
+}
