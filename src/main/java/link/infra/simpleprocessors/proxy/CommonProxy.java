@@ -7,6 +7,7 @@ import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import link.infra.simpleprocessors.items.DuctTape;
 import link.infra.simpleprocessors.items.SolderingIron;
 import link.infra.simpleprocessors.items.processor.Processor;
+import link.infra.simpleprocessors.network.PacketHandler;
 import link.infra.simpleprocessors.util.SPBlock;
 import link.infra.simpleprocessors.util.SPItem;
 import link.infra.simpleprocessors.util.SPItemMeta;
@@ -26,7 +27,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @Mod.EventBusSubscriber
 public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent e) {
-		//PacketHandler.registerMessages("ecmacraft");
+		PacketHandler.registerMessages(SimpleProcessors.MODID);
 	}
 
 	public void init(FMLInitializationEvent e) {
