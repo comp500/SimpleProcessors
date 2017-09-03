@@ -42,8 +42,6 @@ public class ProgrammerGui extends GuiContainer {
         if (newTab != -1 && newTab < tabs.size()) {
         	this.drawHoveringText(I18n.format(tabs.get(newTab).getUnlocalizedName()), mouseX, mouseY);
         }
-        
-        tab.drawTab(this, fontRenderer, container);
 	}
 
 	@Override
@@ -51,6 +49,7 @@ public class ProgrammerGui extends GuiContainer {
 		ProgrammerTab tab = tabs.get(currentTab);
 		mc.getTextureManager().bindTexture(tab.getBackgroundResource());
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, tab.getXSize(), tab.getYSize());
+		tab.drawTab(this, fontRenderer, container);
 	}
 	
 	@Override
