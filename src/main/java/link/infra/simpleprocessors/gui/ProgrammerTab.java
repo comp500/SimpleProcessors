@@ -4,6 +4,7 @@ import java.util.List;
 
 import link.infra.simpleprocessors.SimpleProcessors;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
+import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.ResourceLocation;
@@ -67,6 +68,10 @@ public class ProgrammerTab {
 	}
 	
 	public void actionPerformed(GuiButton button) {
+		// stub
+	}
+
+	public void initGui(ProgrammerGui programmerGui, ProgrammerTileEntity te, ProgrammerContainer container) {
 		// stub
 	}
 

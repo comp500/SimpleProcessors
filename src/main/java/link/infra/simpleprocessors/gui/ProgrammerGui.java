@@ -13,11 +13,13 @@ public class ProgrammerGui extends GuiContainer {
 	private int currentTab;
 	private ArrayList<ProgrammerTab> tabs;
 	protected ProgrammerContainer container;
+	private ProgrammerTileEntity te;
 
 	public ProgrammerGui(ProgrammerTileEntity tileEntity, ProgrammerContainer container) {
 		super(container);
 		
 		this.container = container;
+		this.te = tileEntity;
 
 		tabs = new ArrayList<ProgrammerTab>();
 		tabs.add(new InsertTab());
@@ -85,6 +87,7 @@ public class ProgrammerGui extends GuiContainer {
 		this.buttonList.clear();
 		tab.initButtons(buttonList, this);
 		container.setUsable(tab.hasSlot());
+		tab.initGui(this, te, container);
 	}
 
 }
