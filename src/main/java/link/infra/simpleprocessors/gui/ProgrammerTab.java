@@ -63,7 +63,11 @@ public class ProgrammerTab {
 	}
 	
 	public void initButtons(List<GuiButton> buttonList, ProgrammerGui gui) {
-		
+		// stub
+	}
+	
+	public void actionPerformed(GuiButton button) {
+		// stub
 	}
 
 }

@@ -46,4 +46,13 @@ public class InsertTab extends ProgrammerTab {
 		buttonList.add(new GuiButton(1, guiLeft + 86, guiTop + 91, 40, 15, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.insert.format.name")));
 	}
 	
+	@Override
+	public void actionPerformed(GuiButton button) {
+		if (button.id == 0) {
+			SimpleProcessors.logger.debug("Button 0 pressed");
+		} else if (button.id == 1) {
+			SimpleProcessors.logger.debug("Button 1 pressed");
+		}
+	}
+	
 }

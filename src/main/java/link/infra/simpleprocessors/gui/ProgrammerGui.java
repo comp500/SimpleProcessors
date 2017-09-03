@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 
@@ -50,6 +51,11 @@ public class ProgrammerGui extends GuiContainer {
 		mc.getTextureManager().bindTexture(tab.getBackgroundResource());
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, tab.getXSize(), tab.getYSize());
 		tab.drawTab(this, fontRenderer, container);
+	}
+	
+	@Override
+	protected void actionPerformed(GuiButton button) {
+		tabs.get(currentTab).actionPerformed(button);
 	}
 	
 	@Override
