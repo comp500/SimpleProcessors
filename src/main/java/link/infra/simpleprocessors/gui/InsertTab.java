@@ -49,9 +49,9 @@ public class InsertTab extends ProgrammerTab {
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.id == 0) {
-			SimpleProcessors.logger.debug("Button 0 pressed");
+			SimpleProcessors.logger.info("Button 0 pressed");
 		} else if (button.id == 1) {
-			SimpleProcessors.logger.debug("Button 1 pressed");
+			SimpleProcessors.logger.info("Button 1 pressed");
 		}
 	}
 	
