@@ -59,7 +59,7 @@ public class ProgrammerTab {
 		return false;
 	}
 	
-	public void drawTab(ProgrammerGui gui, FontRenderer fontRenderer, ProgrammerContainer container) {
+	public void drawTab(ProgrammerGui gui, FontRenderer fontRenderer, ProgrammerContainer container, float partialTicks, int mouseX, int mouseY) {
 		// stub
 	}
 	
@@ -71,7 +71,7 @@ public class ProgrammerTab {
 		// stub
 	}
 
-	public void initGui(ProgrammerGui programmerGui, ProgrammerTileEntity te, ProgrammerContainer container) {
+	public void initGui(ProgrammerGui programmerGui, ProgrammerTileEntity te, ProgrammerContainer container, FontRenderer fontRenderer) {
 		// stub
 	}
 

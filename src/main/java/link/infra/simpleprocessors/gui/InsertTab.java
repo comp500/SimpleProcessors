@@ -26,7 +26,7 @@ public class InsertTab extends ProgrammerTab {
 	}
 	
 	@Override
-	public void drawTab(ProgrammerGui gui, FontRenderer fontRenderer, ProgrammerContainer container) {
+	public void drawTab(ProgrammerGui gui, FontRenderer fontRenderer, ProgrammerContainer container, float partialTicks, int mouseX, int mouseY) {
 		ItemStack currentProcessor = container.inputStackHandler.getStackInSlot(0);
         if (currentProcessor != null && !currentProcessor.isEmpty() && currentProcessor.getItem() instanceof Processor) {
         	Processor proc = (Processor) currentProcessor.getItem();

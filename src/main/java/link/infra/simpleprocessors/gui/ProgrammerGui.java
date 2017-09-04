@@ -52,7 +52,7 @@ public class ProgrammerGui extends GuiContainer {
 		ProgrammerTab tab = tabs.get(currentTab);
 		mc.getTextureManager().bindTexture(tab.getBackgroundResource());
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, tab.getXSize(), tab.getYSize());
-		tab.drawTab(this, fontRenderer, container);
+		tab.drawTab(this, fontRenderer, container, partialTicks, mouseX, mouseY);
 	}
 	
 	@Override
@@ -87,7 +87,7 @@ public class ProgrammerGui extends GuiContainer {
 		this.buttonList.clear();
 		tab.initButtons(buttonList, this);
 		container.setUsable(tab.hasSlot());
-		tab.initGui(this, te, container);
+		tab.initGui(this, te, container, fontRenderer);
 	}
 
 }
