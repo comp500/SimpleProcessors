@@ -26,7 +26,7 @@ public class BrowserTab extends ProgrammerTab {
 		fileList = new HashMap<String, Integer>();
 		fileList.put("hello", 3);
 		fileList.put("hi", 10);
-		slotList = new BrowserScrollingList(programmerGui.mc, fileList, programmerGui.getGuiTop(), programmerGui.getGuiLeft());
+		slotList = new BrowserScrollingList(programmerGui.mc, fileList, programmerGui.getGuiTop() + 5, programmerGui.getGuiLeft() + 33);
 		SimpleProcessors.logger.info("Gui init");
 		SimpleProcessors.logger.info(te.getFileList().size());
 	}

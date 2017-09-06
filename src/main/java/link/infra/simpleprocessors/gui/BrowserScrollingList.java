@@ -15,8 +15,8 @@ public class BrowserScrollingList extends GuiScrollingList {
 	private int currentIndex;
 	private Minecraft mc;
 	
-	private static final int width = 100;
-	private static final int height = 100;
+	private static final int width = 108;
+	private static final int height = 156;
 	
 
 	public BrowserScrollingList(Minecraft client, HashMap<String, Integer> fileList, int top, int left) {
