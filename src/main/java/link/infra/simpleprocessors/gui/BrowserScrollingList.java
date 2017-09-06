@@ -37,7 +37,7 @@ public class BrowserScrollingList extends GuiScrollingList {
 
 	@Override
 	protected void elementClicked(int index, boolean doubleClick) {
-		if (currentIndex == index) {
+		if (currentIndex == index && doubleClick) {
 			System.out.println("clicked " + index);
 		}
 		currentIndex = index;
