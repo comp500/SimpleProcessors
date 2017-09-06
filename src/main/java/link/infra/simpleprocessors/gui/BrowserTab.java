@@ -62,8 +62,8 @@ public class BrowserTab extends ProgrammerTab {
 	public void initButtons(List<GuiButton> buttonList, ProgrammerGui gui) {
 		int guiLeft = gui.getGuiLeft();
 		int guiTop = gui.getGuiTop();
-		buttonList.add(new GuiButton(0, guiLeft + 115, guiTop + 33, 56, 17, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.browser.open.name")));
-		buttonList.add(new GuiButton(1, guiLeft + 115, guiTop + 52, 56, 17, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.browser.new.name")));
+		buttonList.add(new GuiButton(0, guiLeft + 115, guiTop + 33, 56, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.browser.open.name")));
+		buttonList.add(new GuiButton(1, guiLeft + 115, guiTop + 55, 56, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.browser.new.name")));
 	}
 	
 }
