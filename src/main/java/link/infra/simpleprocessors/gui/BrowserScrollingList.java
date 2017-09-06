@@ -49,7 +49,6 @@ public class BrowserScrollingList extends GuiScrollingList {
 	@Override
 	protected void drawBackground() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

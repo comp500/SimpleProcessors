@@ -1,7 +1,6 @@
 package link.infra.simpleprocessors.gui;
 
 import java.util.HashMap;
-import java.util.List;
 
 import link.infra.simpleprocessors.SimpleProcessors;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
@@ -24,6 +23,9 @@ public class BrowserTab extends ProgrammerTab {
 	public void initGui(ProgrammerGui programmerGui, ProgrammerTileEntity te, ProgrammerContainer container, FontRenderer fontRenderer) {
 		//fileList = te.getFileList();
 		fileList = new HashMap<String, Integer>();
+		for (int i = 0; i < 50; i++) {
+			fileList.put("hi" + i, 10);
+		}
 		fileList.put("hello", 3);
 		fileList.put("hi", 10);
 		slotList = new BrowserScrollingList(programmerGui.mc, fileList, programmerGui.getGuiLeft() + 5, programmerGui.getGuiTop() + 33);
@@ -33,17 +35,7 @@ public class BrowserTab extends ProgrammerTab {
 	
 	@Override
 	public void drawTab(ProgrammerGui gui, FontRenderer fontRenderer, ProgrammerContainer container, float partialTicks, int mouseX, int mouseY) {
-		/*int i = 0;
-		for (String s : fileList.keySet()) {
-			fontRenderer.drawString(s + " " + fileList.get(s) + " B", gui.getGuiLeft() + 7, gui.getGuiTop() + 36 + (i*9), Color.darkGray.getRGB());
-			i++;
-		}*/
 		slotList.drawScreen(mouseX, mouseY, partialTicks);
-	}
-	
-	@Override
-	public void initButtons(List<GuiButton> buttonList, ProgrammerGui gui) {
-		//slotList.registerScrollButtons(buttonList, 0, 1);
 	}
 	
 	@Override
