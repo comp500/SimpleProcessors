@@ -19,8 +19,8 @@ public class BrowserScrollingList extends GuiScrollingList {
 	private static final int height = 156;
 	
 
-	public BrowserScrollingList(Minecraft client, HashMap<String, Integer> fileList, int left, int top) {
-		super(client, width, height, top, (top + height), left, 12, 1000, 1000);
+	public BrowserScrollingList(Minecraft client, HashMap<String, Integer> fileList, int left, int top, int screenWidth, int screenHeight) {
+		super(client, width, height, top, (top + height), left, 12, screenWidth, screenHeight);
 		this.mc = client;
 
 		for (String s : fileList.keySet()) {

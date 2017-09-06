@@ -1,5 +1,6 @@
 package link.infra.simpleprocessors.gui;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import link.infra.simpleprocessors.SimpleProcessors;
@@ -28,7 +29,7 @@ public class BrowserTab extends ProgrammerTab {
 		}
 		fileList.put("hello", 3);
 		fileList.put("hi", 10);
-		slotList = new BrowserScrollingList(programmerGui.mc, fileList, programmerGui.getGuiLeft() + 5, programmerGui.getGuiTop() + 33);
+		slotList = new BrowserScrollingList(programmerGui.mc, fileList, programmerGui.getGuiLeft() + 5, programmerGui.getGuiTop() + 33, programmerGui.width, programmerGui.height);
 		SimpleProcessors.logger.info("Gui init");
 		SimpleProcessors.logger.info(te.getFileList().size());
 	}
@@ -41,6 +42,11 @@ public class BrowserTab extends ProgrammerTab {
 	@Override
 	public void actionPerformed(GuiButton button) {
 		slotList.actionPerformed(button);
+	}
+	
+	@Override
+	public void handleMouseInput(ProgrammerGui programmerGui, int x, int y) throws IOException {
+		slotList.handleMouseInput(x, y);
 	}
 	
 }

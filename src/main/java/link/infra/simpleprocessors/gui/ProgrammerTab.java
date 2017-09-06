@@ -1,5 +1,6 @@
 package link.infra.simpleprocessors.gui;
 
+import java.io.IOException;
 import java.util.List;
 
 import link.infra.simpleprocessors.SimpleProcessors;
@@ -72,6 +73,10 @@ public class ProgrammerTab {
 	}
 
 	public void initGui(ProgrammerGui programmerGui, ProgrammerTileEntity te, ProgrammerContainer container, FontRenderer fontRenderer) {
+		// stub
+	}
+
+	public void handleMouseInput(ProgrammerGui programmerGui, int x, int y) throws IOException {
 		// stub
 	}
 

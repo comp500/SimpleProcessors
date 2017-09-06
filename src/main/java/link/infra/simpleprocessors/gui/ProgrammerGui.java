@@ -1,6 +1,9 @@
 package link.infra.simpleprocessors.gui;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import org.lwjgl.input.Mouse;
 
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
@@ -88,6 +91,14 @@ public class ProgrammerGui extends GuiContainer {
 		tab.initButtons(buttonList, this);
 		container.setUsable(tab.hasSlot());
 		tab.initGui(this, te, container, fontRenderer);
+	}
+	
+	@Override
+	public void handleMouseInput() throws IOException {
+		int i = Mouse.getEventX() * this.width / this.mc.displayWidth;
+        int j = this.height - Mouse.getEventY() * this.height / this.mc.displayHeight - 1;
+		tabs.get(currentTab).handleMouseInput(this, i, j);
+		super.handleMouseInput();
 	}
 
 }
