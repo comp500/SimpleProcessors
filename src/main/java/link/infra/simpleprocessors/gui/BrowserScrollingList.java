@@ -19,7 +19,7 @@ public class BrowserScrollingList extends GuiScrollingList {
 	private static final int height = 156;
 	
 
-	public BrowserScrollingList(Minecraft client, HashMap<String, Integer> fileList, int top, int left) {
+	public BrowserScrollingList(Minecraft client, HashMap<String, Integer> fileList, int left, int top) {
 		super(client, width, height, top, (top + height), left, 12, 1000, 1000);
 		this.mc = client;
 
@@ -54,7 +54,7 @@ public class BrowserScrollingList extends GuiScrollingList {
 
 	@Override
 	protected void drawSlot(int slotIdx, int entryRight, int slotTop, int slotBuffer, Tessellator tess) {
-		mc.fontRenderer.drawString(nameList.get(slotIdx), left + 2, slotTop + 1, Color.darkGray.getRGB());
+		mc.fontRenderer.drawString(nameList.get(slotIdx), left + 2, slotTop + 1, Color.white.getRGB());
 	}
 
 }
