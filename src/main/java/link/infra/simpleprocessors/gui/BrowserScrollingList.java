@@ -11,8 +11,9 @@ import net.minecraftforge.fml.client.GuiScrollingList;
 public class BrowserScrollingList extends GuiScrollingList {
 	
 	private ArrayList<String> nameList = new ArrayList<String>();
+	private ArrayList<String> fileIndexList = new ArrayList<String>();
 	
-	private int currentIndex;
+	private int currentIndex = 0;
 	private Minecraft mc;
 	
 	private static final int width = 108;
@@ -25,6 +26,7 @@ public class BrowserScrollingList extends GuiScrollingList {
 
 		for (String s : fileList.keySet()) {
 			nameList.add(s + " (" + fileList.get(s) + "B)");
+			fileIndexList.add(s);
 		}
 	}
 
@@ -54,6 +56,19 @@ public class BrowserScrollingList extends GuiScrollingList {
 	@Override
 	protected void drawSlot(int slotIdx, int entryRight, int slotTop, int slotBuffer, Tessellator tess) {
 		mc.fontRenderer.drawString(nameList.get(slotIdx), left + 2, slotTop + 1, Color.white.getRGB());
+	}
+	
+	public String getSelectedFile() {
+		return fileIndexList.get(currentIndex);
+	}
+	
+	public void refresh(HashMap<String, Integer> fileList) {
+		nameList.clear();
+		fileIndexList.clear();
+		for (String s : fileList.keySet()) {
+			nameList.add(s + " (" + fileList.get(s) + "B)");
+			fileIndexList.add(s);
+		}
 	}
 
 }
