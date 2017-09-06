@@ -10,6 +10,8 @@ tooltip.simpleprocessors.programmer.tab.modules.name=Minecraft Package Manager
 button.simpleprocessors.programmer.tab.insert.upload.name=Upload
 button.simpleprocessors.programmer.tab.insert.format.name=Format
 label.simpleprocessors.programmer.tab.insert.insertproc.name=Insert Processor
+button.simpleprocessors.programmer.tab.browser.open.name=Open
+button.simpleprocessors.programmer.tab.browser.new.name=New
 
 item.simpleprocessors.processor_0.name=Tuberous Processor
 item.simpleprocessors.processor_1.name=Iron Processor
