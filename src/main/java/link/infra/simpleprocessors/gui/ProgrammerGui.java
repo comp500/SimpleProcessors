@@ -10,7 +10,7 @@ import net.minecraft.client.resources.I18n;
 
 public class ProgrammerGui extends GuiContainer {
 
-	private int currentTab;
+	private int currentTab = 0;
 	private ArrayList<ProgrammerTab> tabs;
 	protected ProgrammerContainer container;
 	private ProgrammerTileEntity te;
@@ -29,7 +29,7 @@ public class ProgrammerGui extends GuiContainer {
 	
 	@Override
 	public void initGui() {
-		switchTab(0);
+		switchTab(currentTab);
 	}
 
 	@Override
