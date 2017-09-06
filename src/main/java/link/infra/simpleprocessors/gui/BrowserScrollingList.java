@@ -1,6 +1,7 @@
 package link.infra.simpleprocessors.gui;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import net.minecraft.client.Minecraft;
@@ -9,31 +10,34 @@ import net.minecraftforge.fml.client.GuiScrollingList;
 
 public class BrowserScrollingList extends GuiScrollingList {
 	
-	private HashMap<String, Integer> fileList;
+	private ArrayList<String> nameList = new ArrayList<String>();
+	
 	private int currentIndex;
 	private Minecraft mc;
 	
 	private static final int width = 100;
 	private static final int height = 100;
-	private static final int top = 0;
-	private static final int bottom = top + height;
-	private static final int left = 0;
 	
 
-	public BrowserScrollingList(Minecraft client, HashMap<String, Integer> fileList) {
-		super(client, width, height, top, bottom, left, 9, 1000, 1000);
-		this.fileList = fileList;
+	public BrowserScrollingList(Minecraft client, HashMap<String, Integer> fileList, int top, int left) {
+		super(client, width, height, top, (top + height), left, 12, 1000, 1000);
 		this.mc = client;
-		// TODO Auto-generated constructor stub
+
+		for (String s : fileList.keySet()) {
+			nameList.add(s + " (" + fileList.get(s) + "B)");
+		}
 	}
 
 	@Override
 	protected int getSize() {
-		return fileList.size();
+		return nameList.size();
 	}
 
 	@Override
 	protected void elementClicked(int index, boolean doubleClick) {
+		if (currentIndex == index) {
+			System.out.println("clicked " + index);
+		}
 		currentIndex = index;
 	}
 
@@ -50,7 +54,7 @@ public class BrowserScrollingList extends GuiScrollingList {
 
 	@Override
 	protected void drawSlot(int slotIdx, int entryRight, int slotTop, int slotBuffer, Tessellator tess) {
-		mc.fontRenderer.drawString("hi", left, slotTop, Color.darkGray.getRGB());
+		mc.fontRenderer.drawString(nameList.get(slotIdx), left + 2, slotTop + 1, Color.darkGray.getRGB());
 	}
 
 }

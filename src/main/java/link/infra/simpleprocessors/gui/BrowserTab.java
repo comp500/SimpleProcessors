@@ -22,8 +22,11 @@ public class BrowserTab extends ProgrammerTab {
 	
 	@Override
 	public void initGui(ProgrammerGui programmerGui, ProgrammerTileEntity te, ProgrammerContainer container, FontRenderer fontRenderer) {
-		fileList = te.getFileList();
-		slotList = new BrowserScrollingList(programmerGui.mc, fileList);
+		//fileList = te.getFileList();
+		fileList = new HashMap<String, Integer>();
+		fileList.put("hello", 3);
+		fileList.put("hi", 10);
+		slotList = new BrowserScrollingList(programmerGui.mc, fileList, programmerGui.getGuiTop(), programmerGui.getGuiLeft());
 		SimpleProcessors.logger.info("Gui init");
 		SimpleProcessors.logger.info(te.getFileList().size());
 	}
@@ -40,7 +43,7 @@ public class BrowserTab extends ProgrammerTab {
 	
 	@Override
 	public void initButtons(List<GuiButton> buttonList, ProgrammerGui gui) {
-		slotList.registerScrollButtons(buttonList, 0, 1);
+		//slotList.registerScrollButtons(buttonList, 0, 1);
 	}
 	
 	@Override
