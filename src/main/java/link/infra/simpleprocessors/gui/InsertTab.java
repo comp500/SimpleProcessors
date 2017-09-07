@@ -42,8 +42,8 @@ public class InsertTab extends ProgrammerTab {
 	public void initButtons(List<GuiButton> buttonList, ProgrammerGui gui) {
 		int guiLeft = gui.getGuiLeft();
 		int guiTop = gui.getGuiTop();
-		buttonList.add(new GuiButton(0, guiLeft + 127, guiTop + 89, 40, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.insert.upload.name")));
-		buttonList.add(new GuiButton(1, guiLeft + 86, guiTop + 89, 40, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.insert.format.name")));
+		buttonList.add(new GuiButton(0, guiLeft + 127, guiTop + 89, 42, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.insert.upload.name")));
+		buttonList.add(new GuiButton(1, guiLeft + 84, guiTop + 89, 42, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.insert.format.name")));
 	}
 	
 	@Override
