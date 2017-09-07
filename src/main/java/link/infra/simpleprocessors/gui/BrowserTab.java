@@ -18,6 +18,7 @@ public class BrowserTab extends ProgrammerTab {
 	private HashMap<String, Integer> fileList;
 	private BrowserScrollingList slotList;
 	private GuiButton openButton;
+	private ProgrammerTileEntity te;
 	
 	public BrowserTab() {
 		super(background, "browser");
@@ -25,6 +26,7 @@ public class BrowserTab extends ProgrammerTab {
 	
 	@Override
 	public void initGui(ProgrammerGui programmerGui, ProgrammerTileEntity te, ProgrammerContainer container, FontRenderer fontRenderer) {
+		this.te = te;
 		fileList = te.getFileList();
 		slotList = new BrowserScrollingList(programmerGui.mc, fileList, programmerGui.getGuiLeft() + 5, programmerGui.getGuiTop() + 33, programmerGui.width, programmerGui.height);
 		SimpleProcessors.logger.info("Gui init");
@@ -52,6 +54,10 @@ public class BrowserTab extends ProgrammerTab {
 			}
 			fileList.put(name, 0);
 			refresh();
+		} else if (button.id == 0) {
+			te.openLocal();
+		} else if (button.id == 2) {
+			te.readLocal();
 		}
 	}
 	
@@ -76,6 +82,7 @@ public class BrowserTab extends ProgrammerTab {
 		openButton = new GuiButton(0, guiLeft + 115, guiTop + 33, 56, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.browser.open.name"));
 		buttonList.add(openButton);
 		buttonList.add(new GuiButton(1, guiLeft + 115, guiTop + 55, 56, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.browser.new.name")));
+		buttonList.add(new GuiButton(2, guiLeft + 115, guiTop + 77, 56, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.browser.new.name")));
 	}
 	
 }

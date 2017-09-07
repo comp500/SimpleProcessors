@@ -1,6 +1,18 @@
 package link.infra.simpleprocessors.blocks.programmer;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.FileVisitResult;
+import java.nio.file.FileVisitor;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,6 +22,8 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class ProgrammerTileEntity extends TileEntity {
+	
+	private static final String TEST_DIR = "E:/test";
 
 	public boolean canInteractWith(EntityPlayer playerIn) {
 		// If we are too far away from this tile entity you cannot use it
@@ -90,6 +104,50 @@ public class ProgrammerTileEntity extends TileEntity {
             compound.setTag("storage", storageMap);
         }
         return compound;
+    }
+    
+    public void openLocal() {
+    	for (String s : storageMap.getKeySet()) {
+			try {
+				String[] fileArray = storageMap.getString(s).split("\n");
+				List<String> fileArrayList = Arrays.asList(fileArray);
+				Files.write(Paths.get(TEST_DIR, s), fileArrayList, StandardCharsets.UTF_8);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidPathException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+    }
+    
+    public void readLocal() {
+    	Path p = Paths.get(TEST_DIR);
+    	FileVisitor<Path> fv = new SimpleFileVisitor<Path>() {
+    		public int currentSize = 0;
+    		public HashMap<String, String> pendingMap = new HashMap<String, String>();
+    		
+    		@Override
+    		public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+    			currentSize += Files.size(file);
+    			if (currentSize > 64000) {
+    				// won't fit on biggest processor
+    				return FileVisitResult.TERMINATE;
+    			}
+    			System.out.println(file);
+    			List<String> fileStringList = Files.readAllLines(file, StandardCharsets.UTF_8);
+    			Path testDir = Paths.get(TEST_DIR);
+    			pendingMap.put(testDir.relativize(file).toString(), String.join("\n", fileStringList));
+    			return FileVisitResult.CONTINUE;
+    		}
+    	};
+
+    	try {
+    		Files.walkFileTree(p, fv);
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
     }
 
 }
