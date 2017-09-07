@@ -17,6 +17,7 @@ public class BrowserTab extends ProgrammerTab {
 	private static final ResourceLocation background = new ResourceLocation(SimpleProcessors.MODID, "textures/gui/browsertab.png");
 	private HashMap<String, Integer> fileList;
 	private BrowserScrollingList slotList;
+	private GuiButton openButton;
 	
 	public BrowserTab() {
 		super(background, "browser");
@@ -26,11 +27,15 @@ public class BrowserTab extends ProgrammerTab {
 	public void initGui(ProgrammerGui programmerGui, ProgrammerTileEntity te, ProgrammerContainer container, FontRenderer fontRenderer) {
 		//fileList = te.getFileList();
 		fileList = new HashMap<String, Integer>();
-		fileList.put("hello", 3);
-		fileList.put("hi", 10);
+		//fileList.put("hello", 3);
+		//fileList.put("hi", 10);
 		slotList = new BrowserScrollingList(programmerGui.mc, fileList, programmerGui.getGuiLeft() + 5, programmerGui.getGuiTop() + 33, programmerGui.width, programmerGui.height);
 		SimpleProcessors.logger.info("Gui init");
 		SimpleProcessors.logger.info(te.getFileList().size());
+		
+		if (fileList.size() == 0) {
+			openButton.enabled = false;
+		}
 	}
 	
 	@Override
@@ -49,7 +54,16 @@ public class BrowserTab extends ProgrammerTab {
 				i++;
 			}
 			fileList.put(name, 0);
-			slotList.refresh(fileList);
+			refresh();
+		}
+	}
+	
+	public void refresh() {
+		slotList.refresh(fileList);
+		if (fileList.size() == 0) {
+			openButton.enabled = false;
+		} else {
+			openButton.enabled = true;
 		}
 	}
 	
@@ -62,7 +76,8 @@ public class BrowserTab extends ProgrammerTab {
 	public void initButtons(List<GuiButton> buttonList, ProgrammerGui gui) {
 		int guiLeft = gui.getGuiLeft();
 		int guiTop = gui.getGuiTop();
-		buttonList.add(new GuiButton(0, guiLeft + 115, guiTop + 33, 56, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.browser.open.name")));
+		openButton = new GuiButton(0, guiLeft + 115, guiTop + 33, 56, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.browser.open.name"));
+		buttonList.add(openButton);
 		buttonList.add(new GuiButton(1, guiLeft + 115, guiTop + 55, 56, 20, I18n.format("button." + SimpleProcessors.MODID + ".programmer.tab.browser.new.name")));
 	}
 	
