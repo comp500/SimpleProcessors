@@ -2,15 +2,13 @@ package link.infra.simpleprocessors.blocks.programmer;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.FileVisitResult;
-import java.nio.file.FileVisitor;
+import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,7 +21,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class ProgrammerTileEntity extends TileEntity {
 	
-	private static final String TEST_DIR = "E:/test";
+	public static final String TEST_DIR = "E:/test";
 
 	public boolean canInteractWith(EntityPlayer playerIn) {
 		// If we are too far away from this tile entity you cannot use it
@@ -124,29 +122,19 @@ public class ProgrammerTileEntity extends TileEntity {
     
     public void readLocal() {
     	Path p = Paths.get(TEST_DIR);
-    	FileVisitor<Path> fv = new SimpleFileVisitor<Path>() {
-    		public int currentSize = 0;
-    		public HashMap<String, String> pendingMap = new HashMap<String, String>();
-    		
-    		@Override
-    		public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-    			currentSize += Files.size(file);
-    			if (currentSize > 64000) {
-    				// won't fit on biggest processor
-    				return FileVisitResult.TERMINATE;
-    			}
-    			System.out.println(file);
-    			List<String> fileStringList = Files.readAllLines(file, StandardCharsets.UTF_8);
-    			Path testDir = Paths.get(TEST_DIR);
-    			pendingMap.put(testDir.relativize(file).toString(), String.join("\n", fileStringList));
-    			return FileVisitResult.CONTINUE;
-    		}
-    	};
+    	ProgrammerFileVisitor fv = new ProgrammerFileVisitor();
 
     	try {
-    		Files.walkFileTree(p, fv);
+    		EnumSet<FileVisitOption> opts = EnumSet.noneOf(FileVisitOption.class);
+    		Files.walkFileTree(p, opts, 100, fv);
     	} catch (IOException e) {
     		e.printStackTrace();
+    	}
+    	if (fv.pendingMap.size() > 0) {
+    		for (String name : fv.pendingMap.keySet()) {
+    			// AAA send to server
+    			System.out.println(name);
+    		}
     	}
     }
 
