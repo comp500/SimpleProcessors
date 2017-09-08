@@ -150,6 +150,7 @@ public class ProgrammerTileEntity extends TileEntity {
     }
 
     public void setStorageMap(NBTTagCompound map) {
+    	// TODO: Check size, to prevent breaking stuff on server
     	storageMap = map;
     	markDirty();
     	if (world != null) {
