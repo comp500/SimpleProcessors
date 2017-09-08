@@ -38,9 +38,5 @@ public class Processor extends SPItemMeta {
 	public int getAddonCount(ItemStack stack) {
 		return addonCardList.get(stack.getItemDamage());
 	}
-	
-	public boolean isValidMeta(ItemStack stack) {
-		return stack.getItemDamage() < 7;
-	}
 
 }

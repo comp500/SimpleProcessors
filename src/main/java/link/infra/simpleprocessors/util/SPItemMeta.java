@@ -84,5 +84,9 @@ public class SPItemMeta extends SPItem {
 			}
 		}
 	}
+	
+	public boolean isValidMeta(ItemStack stack) {
+		return stack.getItemDamage() < metas;
+	}
 
 }
