@@ -30,6 +30,10 @@ public class PacketUpCode implements IMessage {
 		ByteBufUtils.writeTag(buf, newStorage);
 		buf.writeLong(programmerBlockPos.toLong());
 	}
+	
+	public PacketUpCode() {
+		// for server initialisation
+	}
 
 	public PacketUpCode(NBTTagCompound newStorage, BlockPos programmerBlockPos) {
 		this.newStorage = newStorage;
