@@ -94,8 +94,6 @@ public class ProgrammerTileEntity extends TileEntity {
         	storageMap = compound.getCompoundTag("storage");
         } else {
             storageMap = new NBTTagCompound();
-            // TEST
-            storageMap.setString("index.js", "hello");
         }
     }
 
