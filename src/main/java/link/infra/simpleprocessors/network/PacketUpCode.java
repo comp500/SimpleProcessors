@@ -1,9 +1,11 @@
 package link.infra.simpleprocessors.network;
 
 import io.netty.buffer.ByteBuf;
-import net.minecraft.block.Block;
+import link.infra.simpleprocessors.SimpleProcessors;
+import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
@@ -58,10 +60,16 @@ public class PacketUpCode implements IMessage {
 			// Check if the block (chunk) is loaded to prevent abuse from a client
 			// trying to overload a server by randomly loading chunks
 			if (world.isBlockLoaded(message.programmerBlockPos)) {
-				Block block = world.getBlockState(message.programmerBlockPos).getBlock();
+				TileEntity te = world.getTileEntity(message.programmerBlockPos);
+				if (te instanceof ProgrammerTileEntity) {
+					((ProgrammerTileEntity) te).setStorageMap(message.newStorage);
+				} else {
+					SimpleProcessors.logger.warn("Player tried to upload code to something that isn't a programmer (or doesn't have a TE)!");
+				}
+				
 				// Note: if this is a real message you want to show to a player and not a debug message you should
 				// use localized messages with TextComponentTranslated.
-				playerEntity.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + "Hit block: " + block.getRegistryName()), false);
+				playerEntity.sendStatusMessage(new TextComponentString(TextFormatting.GREEN + "Hit block: " + te.getBlockType().getRegistryName()), false);
 			}
 		}
 	}

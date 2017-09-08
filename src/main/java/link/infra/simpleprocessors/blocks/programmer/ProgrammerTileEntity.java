@@ -20,6 +20,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ProgrammerTileEntity extends TileEntity {
 	
@@ -48,6 +50,7 @@ public class ProgrammerTileEntity extends TileEntity {
     	}
     }
 
+    @SideOnly(Side.SERVER)
     public void setFile(String file, String data) {
         this.storageMap.setString(file, data);
         markDirty();
@@ -106,6 +109,7 @@ public class ProgrammerTileEntity extends TileEntity {
         return compound;
     }
     
+    @SideOnly(Side.CLIENT)
     public void openLocal() {
     	for (String s : storageMap.getKeySet()) {
 			try {
@@ -122,6 +126,7 @@ public class ProgrammerTileEntity extends TileEntity {
 		}
     }
     
+    @SideOnly(Side.CLIENT)
     public void readLocal() {
     	Path p = Paths.get(TEST_DIR);
     	ProgrammerFileVisitor fv = new ProgrammerFileVisitor();
@@ -141,6 +146,16 @@ public class ProgrammerTileEntity extends TileEntity {
     		// send files to server, as NBT can't be updated on client
     		PacketHandler.INSTANCE.sendToServer(new PacketUpCode(storageMap, pos));
     	}
+    }
+    
+    @SideOnly(Side.SERVER)
+    public void setStorageMap(NBTTagCompound map) {
+    	storageMap = map;
+    	markDirty();
+    	if (world != null) {
+            IBlockState state = world.getBlockState(getPos());
+            world.notifyBlockUpdate(getPos(), state, state, 3);
+        }
     }
 
 }

@@ -58,6 +58,8 @@ public class BrowserTab extends ProgrammerTab {
 			te.openLocal();
 		} else if (button.id == 2) {
 			te.readLocal();
+			fileList = te.getFileList();
+			refresh();
 		}
 	}
 	
