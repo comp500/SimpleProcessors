@@ -50,7 +50,6 @@ public class ProgrammerTileEntity extends TileEntity {
     	}
     }
 
-    @SideOnly(Side.SERVER)
     public void setFile(String file, String data) {
         this.storageMap.setString(file, data);
         markDirty();
@@ -147,8 +146,7 @@ public class ProgrammerTileEntity extends TileEntity {
     		PacketHandler.INSTANCE.sendToServer(new PacketUpCode(storageMap, pos));
     	}
     }
-    
-    @SideOnly(Side.SERVER)
+
     public void setStorageMap(NBTTagCompound map) {
     	storageMap = map;
     	markDirty();
