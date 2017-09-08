@@ -12,6 +12,8 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 
+import link.infra.simpleprocessors.network.PacketHandler;
+import link.infra.simpleprocessors.network.PacketUpCode;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -131,10 +133,13 @@ public class ProgrammerTileEntity extends TileEntity {
     		e.printStackTrace();
     	}
     	if (fv.pendingMap.size() > 0) {
+    		storageMap = new NBTTagCompound();
     		for (String name : fv.pendingMap.keySet()) {
-    			// AAA send to server
+    			storageMap.setString(name, fv.pendingMap.get(name));
     			System.out.println(name);
     		}
+    		// send files to server, as NBT can't be updated on client
+    		PacketHandler.INSTANCE.sendToServer(new PacketUpCode(storageMap, pos));
     	}
     }
 
