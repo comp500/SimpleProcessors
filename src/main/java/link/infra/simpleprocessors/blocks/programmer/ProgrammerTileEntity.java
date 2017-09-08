@@ -112,6 +112,7 @@ public class ProgrammerTileEntity extends TileEntity {
     public void openLocal() {
     	for (String s : storageMap.getKeySet()) {
 			try {
+				// TODO: Create required folders, and check for ..\
 				String[] fileArray = storageMap.getString(s).split("\n");
 				List<String> fileArrayList = Arrays.asList(fileArray);
 				Files.write(Paths.get(TEST_DIR, s), fileArrayList, StandardCharsets.UTF_8);
@@ -143,6 +144,7 @@ public class ProgrammerTileEntity extends TileEntity {
     			System.out.println(name);
     		}
     		// send files to server, as NBT can't be updated on client
+    		// TODO: Split into small packets for files that can't fit in one
     		PacketHandler.INSTANCE.sendToServer(new PacketUpCode(storageMap, pos));
     	}
     }
