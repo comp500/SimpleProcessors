@@ -47,8 +47,8 @@ public class CaseGui extends GuiContainer {
 				List<String> list = stack.getTooltip(this.mc.player, this.mc.gameSettings.advancedItemTooltips ? ITooltipFlag.TooltipFlags.ADVANCED : ITooltipFlag.TooltipFlags.NORMAL);
 				List<String> newList = Lists.<String>newArrayList();
 				newList.add(list.get(0)); // Add registry name + adv tooltip
-				list.add(TextFormatting.RED + I18n.format("tooltip.simpleprocessors.case.notbootable"));
-				return list;
+				newList.add(TextFormatting.RED + I18n.format("tooltip.simpleprocessors.case.notbootable"));
+				return newList;
 			}
 		}
 		return super.getItemToolTip(stack);
