@@ -44,5 +44,6 @@ tile.simpleprocessors.charredstone.name=Charred Stone
 
 tile.simpleprocessors.simplecase.name=Simple Case
 tooltip.simpleprocessors.case.notbootable=Must be programmed first!
+tooltip.simpleprocessors.processor.bootable=Programmed!
 
 item.simpleprocessors.addoncard_0.name=Addon Card

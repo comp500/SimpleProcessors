@@ -9,6 +9,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -29,6 +30,10 @@ public class Processor extends SPItemMeta {
 		if (isValidMeta(stack)) {
 			tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item.processor.storage.name") + ": " + getStorage(stack) + " KB");
 			tooltip.add(I18n.format("tooltip." + SimpleProcessors.MODID + ".item.processor.addon.name") + ": " + getAddonCount(stack));
+			if (isBootable(stack)) {
+				tooltip.add(TextFormatting.ITALIC + I18n.format("tooltip." + SimpleProcessors.MODID + ".processor.bootable"));
+				// TODO check for (flashed && !index.js)
+			}
 		}
 	}
 	
