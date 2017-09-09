@@ -52,5 +52,20 @@ public class Processor extends SPItemMeta {
 		}
 		return false;
 	}
+	
+	public void flashStack(ItemStack stack, NBTTagCompound storage) {
+		NBTTagCompound nbt = stack.getTagCompound();
+		if (nbt == null) {
+			stack.setTagCompound(new NBTTagCompound());
+		}
+		nbt.setTag("storage", storage);
+	}
+	
+	public void wipeStack(ItemStack stack) {
+		NBTTagCompound nbt = stack.getTagCompound();
+		if (nbt != null) {
+			stack.setTagCompound(null);
+		}
+	}
 
 }

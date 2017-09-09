@@ -12,10 +12,14 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 
+import link.infra.simpleprocessors.items.Processor;
 import link.infra.simpleprocessors.network.PacketHandler;
+import link.infra.simpleprocessors.network.PacketProgrammerAction.ProgrammerAction;
 import link.infra.simpleprocessors.network.PacketUpCode;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -156,5 +160,25 @@ public class ProgrammerTileEntity extends TileEntity {
             world.notifyBlockUpdate(getPos(), state, state, 3);
         }
     }
+
+	public void serverAction(ProgrammerAction action, Container openContainer) {
+		ItemStack stack = openContainer.getSlot(0).getStack();
+		if (stack == ItemStack.EMPTY) return;
+		switch (action) {
+			case FLASH_PROCESSOR:
+				// TODO Check size < processor size
+				if (!stack.isEmpty() && stack.getItem() instanceof Processor) { // ensure it's still a processor
+					if (!storageMap.hasNoTags()) { // if it don't got no tags
+						((Processor) stack.getItem()).flashStack(stack, storageMap); // flash it
+					}
+				}
+				break;
+			case WIPE_PROCESSOR:
+				if (!stack.isEmpty() && stack.getItem() instanceof Processor) { // ensure it's still a processor
+					((Processor) stack.getItem()).wipeStack(stack); // wipe it
+				}
+				break;
+		}
+	}
 
 }
