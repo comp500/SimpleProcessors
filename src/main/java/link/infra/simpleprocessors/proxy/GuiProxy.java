@@ -1,6 +1,5 @@
 package link.infra.simpleprocessors.proxy;
 
-import link.infra.simpleprocessors.blocks.programmer.Programmer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerGui;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
@@ -14,7 +13,7 @@ public class GuiProxy implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if (ID == Programmer.GUI_ID) {
+		if (ID == ProgrammerGui.GUI_ID) {
 			BlockPos pos = new BlockPos(x, y, z);
 			TileEntity te = world.getTileEntity(pos);
 			if (te instanceof ProgrammerTileEntity) {
@@ -26,7 +25,7 @@ public class GuiProxy implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if (ID == Programmer.GUI_ID) {
+		if (ID == ProgrammerGui.GUI_ID) {
 			BlockPos pos = new BlockPos(x, y, z);
 			TileEntity te = world.getTileEntity(pos);
 			if (te instanceof ProgrammerTileEntity) {

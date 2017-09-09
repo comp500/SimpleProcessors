@@ -10,6 +10,8 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 
 public class ProgrammerGui extends GuiContainer {
+	
+	public static final int GUI_ID = 1;
 
 	private int currentTab = 0;
 	private ArrayList<ProgrammerTab> tabs;

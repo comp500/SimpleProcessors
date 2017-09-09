@@ -13,8 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Programmer extends SPBlockOrientable implements ITileEntityProvider {
-	
-	public static final int GUI_ID = 1;
 
 	public Programmer() {
 		super("programmer", Material.ROCK, true);
@@ -35,7 +33,7 @@ public class Programmer extends SPBlockOrientable implements ITileEntityProvider
 		if (!(te instanceof ProgrammerTileEntity)) {
 			return false;
 		}
-		player.openGui(SimpleProcessors.instance, GUI_ID, world, pos.getX(), pos.getY(), pos.getZ());
+		player.openGui(SimpleProcessors.instance, ProgrammerGui.GUI_ID, world, pos.getX(), pos.getY(), pos.getZ());
 		return true;
 	}
 	
