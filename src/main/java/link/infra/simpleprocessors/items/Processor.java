@@ -61,7 +61,8 @@ public class Processor extends SPItemMeta {
 	public void flashStack(ItemStack stack, NBTTagCompound storage) {
 		NBTTagCompound nbt = stack.getTagCompound();
 		if (nbt == null) {
-			stack.setTagCompound(new NBTTagCompound());
+			nbt = new NBTTagCompound();
+			stack.setTagCompound(nbt);
 		}
 		nbt.setTag("storage", storage);
 	}
