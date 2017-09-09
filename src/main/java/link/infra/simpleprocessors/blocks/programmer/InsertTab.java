@@ -5,6 +5,9 @@ import java.util.List;
 
 import link.infra.simpleprocessors.SimpleProcessors;
 import link.infra.simpleprocessors.items.Processor;
+import link.infra.simpleprocessors.network.PacketHandler;
+import link.infra.simpleprocessors.network.PacketProgrammerAction;
+import link.infra.simpleprocessors.network.PacketProgrammerAction.ProgrammerAction;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.resources.I18n;
@@ -13,10 +16,13 @@ import net.minecraft.util.ResourceLocation;
 
 public class InsertTab extends ProgrammerTab {
 	
+	private ProgrammerTileEntity te;
+	
 	private static final ResourceLocation background = new ResourceLocation(SimpleProcessors.MODID, "textures/gui/inserttab.png");
 	
-	public InsertTab() {
+	public InsertTab(ProgrammerTileEntity te) {
 		super(background, "insert");
+		this.te = te;
 	}
 	
 	@Override
@@ -48,8 +54,10 @@ public class InsertTab extends ProgrammerTab {
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.id == 0) {
+			PacketHandler.INSTANCE.sendToServer(new PacketProgrammerAction(ProgrammerAction.FLASH_PROCESSOR, te.getPos()));
 			SimpleProcessors.logger.info("Button 0 pressed");
 		} else if (button.id == 1) {
+			PacketHandler.INSTANCE.sendToServer(new PacketProgrammerAction(ProgrammerAction.WIPE_PROCESSOR, te.getPos()));
 			SimpleProcessors.logger.info("Button 1 pressed");
 		}
 	}

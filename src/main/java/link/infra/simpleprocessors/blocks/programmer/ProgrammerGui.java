@@ -25,7 +25,7 @@ public class ProgrammerGui extends GuiContainer {
 		this.te = tileEntity;
 
 		tabs = new ArrayList<ProgrammerTab>();
-		tabs.add(new InsertTab());
+		tabs.add(new InsertTab(tileEntity));
 		tabs.add(new BrowserTab());
 		tabs.add(new ModulesTab());
 	}
