@@ -51,7 +51,7 @@ public class CaseContainer extends Container {
 		for (int i = 0; i < caseStackHandler.unlockedSlots; i++) {
 			int row = i / 4;
 			int column = i % 4;
-			addSlotToContainer(new SlotItemHandler(caseStackHandler, i, 70 + (column * 18), 26 + (row * 18)));
+			addSlotToContainer(new SlotItemHandler(caseStackHandler, i + 1, 70 + (column * 18), 26 + (row * 18)));
 		}
 	}
 
