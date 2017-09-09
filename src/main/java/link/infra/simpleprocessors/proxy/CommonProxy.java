@@ -2,8 +2,10 @@ package link.infra.simpleprocessors.proxy;
 
 import link.infra.simpleprocessors.ModBlocks;
 import link.infra.simpleprocessors.SimpleProcessors;
+import link.infra.simpleprocessors.blocks.processorcase.CaseSimple;
 import link.infra.simpleprocessors.blocks.programmer.Programmer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
+import link.infra.simpleprocessors.items.AddonCard;
 import link.infra.simpleprocessors.items.DuctTape;
 import link.infra.simpleprocessors.items.Processor;
 import link.infra.simpleprocessors.items.SolderingIron;
@@ -42,6 +44,7 @@ public class CommonProxy {
 		event.getRegistry().register(new Programmer());
 		GameRegistry.registerTileEntity(ProgrammerTileEntity.class, SimpleProcessors.MODID + "_programmertile");
 		event.getRegistry().register(new SPBlock("charredstone", Material.ROCK));
+		event.getRegistry().register(new CaseSimple());
 	}
 
 	@SubscribeEvent
@@ -51,8 +54,10 @@ public class CommonProxy {
 		event.getRegistry().register(new SPItemMeta("screwdriver", true, 1, 2));
 		event.getRegistry().register(new DuctTape());
 		event.getRegistry().register(new SPItem("processorsocket"));
+		event.getRegistry().register(new AddonCard());
 		
 		event.getRegistry().register(new ItemBlock(ModBlocks.programmer).setRegistryName(ModBlocks.programmer.getRegistryName()));
 		event.getRegistry().register(new ItemBlock(ModBlocks.charredstone).setRegistryName(ModBlocks.charredstone.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(ModBlocks.simplecase).setRegistryName(ModBlocks.simplecase.getRegistryName()));
 	}
 }

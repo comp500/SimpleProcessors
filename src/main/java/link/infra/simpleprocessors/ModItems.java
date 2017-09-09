@@ -1,5 +1,6 @@
 package link.infra.simpleprocessors;
 
+import link.infra.simpleprocessors.items.AddonCard;
 import link.infra.simpleprocessors.items.DuctTape;
 import link.infra.simpleprocessors.items.Processor;
 import link.infra.simpleprocessors.items.SolderingIron;
@@ -22,6 +23,9 @@ public class ModItems {
 	@GameRegistry.ObjectHolder("simpleprocessors:processor")
     public static Processor processor;
 	
+	@GameRegistry.ObjectHolder("simpleprocessors:addoncard")
+    public static AddonCard addoncard;
+	
 	@GameRegistry.ObjectHolder("simpleprocessors:solderingiron")
     public static SolderingIron solderingiron;
 	@GameRegistry.ObjectHolder("simpleprocessors:screwdriver")
@@ -38,6 +42,7 @@ public class ModItems {
 		screwdriver.initModel();
 		ducttape.initModel();
 		processorsocket.initModel();
+		addoncard.initModel();
 	}
 
 }
