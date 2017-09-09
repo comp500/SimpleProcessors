@@ -12,25 +12,25 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public abstract class CaseBasic extends SPBlock implements ITileEntityProvider {
+public abstract class CaseBase extends SPBlock implements ITileEntityProvider {
 	
 	// Multiple inheritance would be so convenient - I'd like this to work with both SPBlock and SPBlockOrientable
 	// I heard it causes problems though.
 	
 	// Why do I have to overload everything?
-	public CaseBasic(String itemID, Material blockMaterial, float hardness, boolean tooltip) {
+	public CaseBase(String itemID, Material blockMaterial, float hardness, boolean tooltip) {
 		super(itemID, blockMaterial, hardness, tooltip);
 	}
 	
-	public CaseBasic(String itemID, Material blockMaterial, boolean tooltip) {
+	public CaseBase(String itemID, Material blockMaterial, boolean tooltip) {
 		super(itemID, blockMaterial, tooltip);
 	}
 	
-	public CaseBasic(String itemID, Material blockMaterial, float hardness) {
+	public CaseBase(String itemID, Material blockMaterial, float hardness) {
 		super(itemID, blockMaterial, hardness);
 	}
 	
-	public CaseBasic(String itemID, Material blockMaterial) {
+	public CaseBase(String itemID, Material blockMaterial) {
 		super(itemID, blockMaterial);
 	}
 	
