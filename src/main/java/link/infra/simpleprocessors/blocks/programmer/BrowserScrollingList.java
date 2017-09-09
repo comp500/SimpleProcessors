@@ -1,4 +1,4 @@
-package link.infra.simpleprocessors.gui;
+package link.infra.simpleprocessors.blocks.programmer;
 
 import java.awt.Color;
 import java.util.ArrayList;

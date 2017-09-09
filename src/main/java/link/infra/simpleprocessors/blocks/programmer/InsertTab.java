@@ -1,10 +1,9 @@
-package link.infra.simpleprocessors.gui;
+package link.infra.simpleprocessors.blocks.programmer;
 
 import java.awt.Color;
 import java.util.List;
 
 import link.infra.simpleprocessors.SimpleProcessors;
-import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
 import link.infra.simpleprocessors.items.processor.Processor;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;

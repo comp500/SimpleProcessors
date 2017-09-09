@@ -1,12 +1,10 @@
-package link.infra.simpleprocessors.gui;
+package link.infra.simpleprocessors.blocks.programmer;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
 import link.infra.simpleprocessors.SimpleProcessors;
-import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
-import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.resources.I18n;

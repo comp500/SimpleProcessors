@@ -1,4 +1,4 @@
-package link.infra.simpleprocessors.gui;
+package link.infra.simpleprocessors.blocks.processorcase;
 
 import link.infra.simpleprocessors.SimpleProcessors;
 import net.minecraft.client.gui.inventory.GuiContainer;

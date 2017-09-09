@@ -1,4 +1,4 @@
-package link.infra.simpleprocessors.gui;
+package link.infra.simpleprocessors.blocks.programmer;
 
 import link.infra.simpleprocessors.SimpleProcessors;
 import net.minecraft.util.ResourceLocation;

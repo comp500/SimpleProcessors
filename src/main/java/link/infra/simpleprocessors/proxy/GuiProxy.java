@@ -2,8 +2,8 @@ package link.infra.simpleprocessors.proxy;
 
 import link.infra.simpleprocessors.blocks.programmer.Programmer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
+import link.infra.simpleprocessors.blocks.programmer.ProgrammerGui;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
-import link.infra.simpleprocessors.gui.ProgrammerGui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;

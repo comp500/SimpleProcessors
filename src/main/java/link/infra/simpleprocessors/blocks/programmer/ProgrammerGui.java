@@ -1,12 +1,10 @@
-package link.infra.simpleprocessors.gui;
+package link.infra.simpleprocessors.blocks.programmer;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 import org.lwjgl.input.Mouse;
 
-import link.infra.simpleprocessors.blocks.programmer.ProgrammerContainer;
-import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
