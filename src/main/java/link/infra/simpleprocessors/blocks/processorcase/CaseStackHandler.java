@@ -1,6 +1,6 @@
 package link.infra.simpleprocessors.blocks.processorcase;
 
-import link.infra.simpleprocessors.items.processor.Processor;
+import link.infra.simpleprocessors.items.Processor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;

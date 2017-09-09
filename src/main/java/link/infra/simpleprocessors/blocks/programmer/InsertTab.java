@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.List;
 
 import link.infra.simpleprocessors.SimpleProcessors;
-import link.infra.simpleprocessors.items.processor.Processor;
+import link.infra.simpleprocessors.items.Processor;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.resources.I18n;

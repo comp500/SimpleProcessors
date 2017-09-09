@@ -47,9 +47,11 @@ public class CaseContainer extends Container {
 	}
 
 	private void addOwnSlots() {
-		addSlotToContainer(new SlotItemHandler(caseStackHandler, 0, 146, 41));
+		addSlotToContainer(new SlotItemHandler(caseStackHandler, 0, 42, 35));
 		for (int i = 0; i < caseStackHandler.unlockedSlots; i++) {
-			addSlotToContainer(new SlotItemHandler(caseStackHandler, 0, 146, 41));
+			int row = i / 4;
+			int column = i % 4;
+			addSlotToContainer(new SlotItemHandler(caseStackHandler, i, 70 + (column * 18), 26 + (row * 18)));
 		}
 	}
 
@@ -104,6 +106,10 @@ public class CaseContainer extends Container {
 		} else {
 			playerIn.inventory.placeItemBackInInventory(playerIn.getEntityWorld(), caseStackHandler.extractItem(0, 64, false));
 		}
+	}
+	
+	public int getUnlockedSlots() {
+		return caseStackHandler.unlockedSlots;
 	}
 	
 }

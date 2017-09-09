@@ -1,8 +1,8 @@
 package link.infra.simpleprocessors;
 
 import link.infra.simpleprocessors.items.DuctTape;
+import link.infra.simpleprocessors.items.Processor;
 import link.infra.simpleprocessors.items.SolderingIron;
-import link.infra.simpleprocessors.items.processor.Processor;
 import link.infra.simpleprocessors.util.SPItem;
 import link.infra.simpleprocessors.util.SPItemMeta;
 import net.minecraft.creativetab.CreativeTabs;

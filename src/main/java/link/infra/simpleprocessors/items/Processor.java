@@ -1,4 +1,4 @@
-package link.infra.simpleprocessors.items.processor;
+package link.infra.simpleprocessors.items;
 
 import java.util.Arrays;
 import java.util.List;

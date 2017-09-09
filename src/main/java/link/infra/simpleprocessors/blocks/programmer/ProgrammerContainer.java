@@ -2,7 +2,7 @@ package link.infra.simpleprocessors.blocks.programmer;
 
 import javax.annotation.Nullable;
 
-import link.infra.simpleprocessors.items.processor.Processor;
+import link.infra.simpleprocessors.items.Processor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
