@@ -1,9 +1,18 @@
 package link.infra.simpleprocessors.blocks.processorcase;
 
+import java.util.List;
+
+import com.google.common.collect.Lists;
+
 import link.infra.simpleprocessors.SimpleProcessors;
+import link.infra.simpleprocessors.items.Processor;
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.inventory.Container;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 
 public class CaseGui extends GuiContainer {
 	
@@ -30,5 +39,19 @@ public class CaseGui extends GuiContainer {
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		super.renderHoveredToolTip(mouseX, mouseY);
 	}
+	
+	@Override
+	public List<String> getItemToolTip(ItemStack stack) {
+		if (stack.getItem() instanceof Processor) {
+			if (!((Processor)stack.getItem()).isBootable(stack)) {
+				List<String> list = stack.getTooltip(this.mc.player, this.mc.gameSettings.advancedItemTooltips ? ITooltipFlag.TooltipFlags.ADVANCED : ITooltipFlag.TooltipFlags.NORMAL);
+				List<String> newList = Lists.<String>newArrayList();
+				newList.add(list.get(0)); // Add registry name + adv tooltip
+				list.add(TextFormatting.RED + I18n.format("tooltip.simpleprocessors.case.notbootable"));
+				return list;
+			}
+		}
+		return super.getItemToolTip(stack);
+    }
 
 }

@@ -41,3 +41,8 @@ tooltip.simpleprocessors.item.screwdriver_1.name=Orange and cool.
 item.simpleprocessors.processorsocket.name=Processor Socket
 
 tile.simpleprocessors.charredstone.name=Charred Stone
+
+tile.simpleprocessors.simplecase.name=Simple Case
+tooltip.simpleprocessors.case.notbootable=Must be programmed first!
+
+item.simpleprocessors.addoncard_0.name=Addon Card
