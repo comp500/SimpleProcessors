@@ -2,7 +2,6 @@ package link.infra.simpleprocessors.blocks.processorcase;
 
 import javax.annotation.Nullable;
 
-import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
@@ -13,13 +12,14 @@ import net.minecraftforge.items.SlotItemHandler;
 
 public class CaseContainer extends Container {
 
-	// TODO rewrite to use CaseTileEntity
-	private ProgrammerTileEntity te;
+	// TODO rewrite to use Capabilities
+	
+	private CaseTileEntity te;
 	private IInventory playerInv;
 	
 	public CaseStackHandler caseStackHandler = new CaseStackHandler(this);
 
-	public CaseContainer(IInventory playerInventory, ProgrammerTileEntity te) {
+	public CaseContainer(IInventory playerInventory, CaseTileEntity te) {
 		this.te = te;
 		this.playerInv = playerInventory;
 		

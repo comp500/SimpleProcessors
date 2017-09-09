@@ -8,6 +8,7 @@ import link.infra.simpleprocessors.util.SPItemMeta;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -37,6 +38,19 @@ public class Processor extends SPItemMeta {
 	
 	public int getAddonCount(ItemStack stack) {
 		return addonCardList.get(stack.getItemDamage());
+	}
+	
+	public boolean isBootable(ItemStack stack) {
+		NBTTagCompound nbt = stack.getTagCompound();
+		if (nbt != null) {
+			if (nbt.hasKey("storage", 10)) { // 10 == NBTTagCompound
+				NBTTagCompound storageNBT = nbt.getCompoundTag("storage");
+				if (storageNBT != null && storageNBT.hasKey("index.js")) { // check if has index.js, boot file
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 }

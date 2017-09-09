@@ -21,6 +21,7 @@ public class CaseGui extends GuiContainer {
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		mc.getTextureManager().bindTexture(background);
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+        // TODO draw slots based on unlockedSlots
 	}
 	
 	@Override
