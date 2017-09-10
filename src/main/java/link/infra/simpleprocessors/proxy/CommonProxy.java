@@ -3,6 +3,7 @@ package link.infra.simpleprocessors.proxy;
 import link.infra.simpleprocessors.ModBlocks;
 import link.infra.simpleprocessors.SimpleProcessors;
 import link.infra.simpleprocessors.blocks.processorcase.CaseSimple;
+import link.infra.simpleprocessors.blocks.processorcase.CaseTileEntity;
 import link.infra.simpleprocessors.blocks.programmer.Programmer;
 import link.infra.simpleprocessors.blocks.programmer.ProgrammerTileEntity;
 import link.infra.simpleprocessors.items.AddonCard;
@@ -45,6 +46,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(ProgrammerTileEntity.class, SimpleProcessors.MODID + "_programmertile");
 		event.getRegistry().register(new SPBlock("charredstone", Material.ROCK));
 		event.getRegistry().register(new CaseSimple());
+		GameRegistry.registerTileEntity(CaseTileEntity.class, SimpleProcessors.MODID + "_casebase");
 	}
 
 	@SubscribeEvent
