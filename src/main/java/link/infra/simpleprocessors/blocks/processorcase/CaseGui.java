@@ -36,7 +36,7 @@ public class CaseGui extends GuiContainer {
 		for (int i = 0; i < caseSlots.getUnlockedSlots(); i++) {
 			int row = i / 4;
 			int column = i % 4;
-			drawTexturedModalRect(69 + (column * 18), 25 + (row * 18), 0, 166, 18, 18);
+			drawTexturedModalRect(guiLeft + 69 + (column * 18), guiTop + 25 + (row * 18), 0, 166, 18, 18);
 		}
 	}
 	
