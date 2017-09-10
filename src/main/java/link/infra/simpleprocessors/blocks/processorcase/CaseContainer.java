@@ -100,11 +100,15 @@ public class CaseContainer extends Container {
 	@Override
 	public void onContainerClosed(EntityPlayer playerIn) {
 		super.onContainerClosed(playerIn);
-		// TODO drop all items, rather than just slot 0
+		//TODO move this to block broken, and store stuff in TE
 		if (!playerIn.isEntityAlive() || playerIn instanceof EntityPlayerMP && ((EntityPlayerMP)playerIn).hasDisconnected()) {
-			playerIn.dropItem(caseStackHandler.extractItem(0, 64, false), false);
+			for (int i = 0; i < caseStackHandler.getSlots(); i++) {
+				playerIn.dropItem(caseStackHandler.extractItem(i, 64, false), false);
+			}
 		} else {
-			playerIn.inventory.placeItemBackInInventory(playerIn.getEntityWorld(), caseStackHandler.extractItem(0, 64, false));
+			for (int i = 0; i < caseStackHandler.getSlots(); i++) {
+				playerIn.inventory.placeItemBackInInventory(playerIn.getEntityWorld(), caseStackHandler.extractItem(i, 64, false));
+			}
 		}
 	}
 	
