@@ -18,9 +18,12 @@ public class CaseGui extends GuiContainer {
 	
 	public static final int GUI_ID = 2;
 	private static final ResourceLocation background = new ResourceLocation(SimpleProcessors.MODID, "textures/gui/case.png");
+	private CaseContainer caseSlots;
 
 	public CaseGui(Container inventorySlotsIn) {
 		super(inventorySlotsIn);
+		
+		this.caseSlots = (CaseContainer) inventorySlotsIn;
 		
 		xSize = 176;
 		ySize = 166;
@@ -30,7 +33,11 @@ public class CaseGui extends GuiContainer {
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		mc.getTextureManager().bindTexture(background);
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-        // TODO draw slots based on unlockedSlots
+		for (int i = 0; i < caseSlots.getUnlockedSlots(); i++) {
+			int row = i / 4;
+			int column = i % 4;
+			drawTexturedModalRect(69 + (column * 18), 25 + (row * 18), 0, 166, 18, 18);
+		}
 	}
 	
 	@Override
